@@ -13,7 +13,12 @@ describe "StaticPages" do
 
     it "should have the right title" do
       visit '/static_pages/home'
-      expect(page).to have_title("#{basetitle} | Home")
+      expect(page).to have_title("#{basetitle}")
+    end
+
+    it "should not have a custom page title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Home')
     end
 
   end # Describe home page
@@ -26,7 +31,7 @@ describe "StaticPages" do
     end
 
     it "should have the right title" do
-      visit '/static_pages/home'
+      visit '/static_pages/about'
       expect(page).to have_title("#{basetitle} | About")
     end
 
