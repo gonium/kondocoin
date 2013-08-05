@@ -8,6 +8,10 @@
  $ bundle install
 ````
 
+### Progress
+
+Continue with http://ruby.railstutorial.org/chapters/filling-in-the-layout#top
+
 
 ###
 
