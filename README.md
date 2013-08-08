@@ -13,11 +13,15 @@ dummy rails environment and copy the default database.yml from it.
 
 ### Progress
 
-Continue with http://ruby.railstutorial.org/chapters/filling-in-the-layout#top
 
 
 ###
 
  * [Bitcoind JSON-RPC API](https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)#Ruby)
+ * https://github.com/bkerley/bitcoind
+ * PDF: http://railscasts.com/episodes/78-generating-pdf-documents
+   * http://blog.idyllic-software.com/blog/bid/204082/Creating-PDF-using-Prawn-in-Ruby-on-Rails
+ * http://railscasts.com/episodes/342-migrating-to-postgresql
+
 
  ruby bitcoin-client gem
