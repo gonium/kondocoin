@@ -7,6 +7,9 @@
  $ bundle update
  $ bundle install
 ````
+If the app complains about a missing database.yml, please generate a
+dummy rails environment and copy the default database.yml from it.
+
 
 ### Progress
 
