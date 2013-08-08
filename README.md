@@ -22,6 +22,8 @@ dummy rails environment and copy the default database.yml from it.
  * PDF: http://railscasts.com/episodes/78-generating-pdf-documents
    * http://blog.idyllic-software.com/blog/bid/204082/Creating-PDF-using-Prawn-in-Ruby-on-Rails
  * http://railscasts.com/episodes/342-migrating-to-postgresql
+ * Statemachine: https://github.com/pluginaweek/state_machine
+   * siehe "Web Frameworks" fuer ein Beispiel
 
 
  ruby bitcoin-client gem
