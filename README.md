@@ -24,6 +24,9 @@ dummy rails environment and copy the default database.yml from it.
  * http://railscasts.com/episodes/342-migrating-to-postgresql
  * Statemachine: https://github.com/pluginaweek/state_machine
    * siehe "Web Frameworks" fuer ein Beispiel
+ * Cronjob: Hält Bitcoin-Kurs aktuell.
+   * siehe (veraltet) http://railscasts.com/episodes/164-cron-in-ruby?autoplay=true
+   * https://github.com/javan/whenever
 
 
  ruby bitcoin-client gem
