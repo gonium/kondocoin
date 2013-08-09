@@ -6,8 +6,7 @@ describe Voucher do
   before do
     @voucher = Voucher.new(
               code: "54ec-3a80-9b49-db78-7f5b-df6f",
-              eurovalue: 1.8,
-              state: "foo");
+              eurovalue: 1.8);
     @v_factory = VoucherFactory.new();
   end
 
@@ -52,5 +51,21 @@ describe Voucher do
     end
   end
 
+  describe "state" do
+    it "must be initially 'new'" do
+      @voucher.should be_new
+    end
+    it "becomes active when a hardcopy is created" do
+      @voucher.should be_new
+      @voucher.hardcopy!
+      @voucher.should be_active
+    end
+    it "becomes redeemed after harcopy and redeem actions" do
+      @voucher.should be_new
+      @voucher.hardcopy!
+      @voucher.redeem!
+      @voucher.should be_redeemed
+    end
+  end
 
 end
