@@ -7,7 +7,7 @@ describe Voucher do
     @voucher = Voucher.new(
               code: "54ec-3a80-9b49-db78-7f5b-df6f",
               eurovalue: 1.8);
-    @v_factory = VoucherFactory.new();
+    @v_factory = CodeFactory.new();
   end
 
   subject {@voucher}
@@ -18,12 +18,12 @@ describe Voucher do
 
   describe "code" do
     it "must be unique" do
-      v1 = @v_factory.create_code;
-      v2 = @v_factory.create_code;
+      v1 = @v_factory.create;
+      v2 = @v_factory.create;
       expect(v1).not_to eq(v2)
     end
     it "must be well-formed" do
-      code = @v_factory.create_code;
+      code = @v_factory.create;
       expect(code).to match(/^[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}$/)
     end
     describe "must be present" do

@@ -1,7 +1,7 @@
 require 'securerandom'
 
-class VoucherFactory
-  def create_code
+class CodeFactory
+  def create
     a = [];
     6.times { a << SecureRandom.hex(2)};
     return a.join("-").downcase;
