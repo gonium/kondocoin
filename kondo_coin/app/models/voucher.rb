@@ -31,6 +31,9 @@ class Voucher < ActiveRecord::Base
 end
 
 class VoucherObserver < ActiveRecord::Observer
+  #def my_logger
+  #  @@my_logger ||= Logger.new("#{Rails.root}/log/voucher.log")
+  #end
   # Callback for :ignite event *before* the transition is performed
   def before_ignite(voucher, transition)
     # log message
@@ -38,6 +41,6 @@ class VoucherObserver < ActiveRecord::Observer
 
   # Generic transition callback *after* the transition is performed
   def after_transition(voucher, transition)
-    Audit.log(voucher, transition)
+    # TODO: Create trail.
   end
 end

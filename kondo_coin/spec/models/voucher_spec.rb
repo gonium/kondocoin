@@ -66,6 +66,14 @@ describe Voucher do
       @voucher.redeem!
       @voucher.should be_redeemed
     end
+    it "cannot be reset after being redeemed" do
+      @voucher.should be_new
+      @voucher.hardcopy!
+      @voucher.redeem!
+      expect { @voucher.hardcopy! }.to raise_error
+      @voucher.should be_redeemed
+    end
+
   end
 
 end
