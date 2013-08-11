@@ -1,4 +1,5 @@
 KondoCoin::Application.routes.draw do
+  get "checkout/redeem"
   get "voucher/redeem"
   root 'static_pages#home'
   match '/about',   to: 'static_pages#about',   via: 'get'
