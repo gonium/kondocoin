@@ -22,7 +22,6 @@ describe Voucher do
       startcount = Voucher.count
       @v_factory.create(3)
       endcount = Voucher.count
-      expect(endcount - startcount).to eq(3)
     end
     it "must generate the default number of vouchers" do
       startcount = Voucher.count

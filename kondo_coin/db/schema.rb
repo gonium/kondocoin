@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130808190402) do
+ActiveRecord::Schema.define(version: 20130811183007) do
+
+  create_table "tickers", force: true do |t|
+    t.float    "btc_usd"
+    t.float    "btc_eur"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "timestamp"
+  end
 
   create_table "vouchers", force: true do |t|
     t.string   "code"

@@ -27,6 +27,8 @@ dummy rails environment and copy the default database.yml from it.
  * Cronjob: Hält Bitcoin-Kurs aktuell.
    * siehe (veraltet) http://railscasts.com/episodes/164-cron-in-ruby?autoplay=true
    * https://github.com/javan/whenever
+ * Kursdaten abrufen:
+   * http://stackoverflow.com/questions/3139879/how-do-i-get-currency-exchange-rates-using-google-finance-api
 
  * Autotab for entering the code:
    * http://www.mathachew.com/sandbox/jquery-autotab/
