@@ -35,6 +35,10 @@ GEM
     afm (0.2.0)
     arel (4.0.0)
     atomic (1.1.12)
+    bitstamp (0.2.7)
+      activemodel (>= 3.1)
+      activesupport (>= 3.1)
+      curb (> 0.8.1)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.9)
@@ -66,6 +70,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    curb (0.8.4)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -225,6 +230,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitstamp (~> 0.2.7)
   bootstrap-sass (= 2.3.2.0)
   bootstrap-will_paginate (= 0.0.9)
   capybara (= 2.1.0)
@@ -249,4 +255,4 @@ DEPENDENCIES
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
   will_paginate (= 3.0.4)
-  xml-simple
+  xml-simple (~> 1.1.2)

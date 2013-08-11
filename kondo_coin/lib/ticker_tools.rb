@@ -1,6 +1,6 @@
 require 'xmlsimple'
 require 'open-uri'
-require 'pp'
+require 'bitstamp'
 
 class CurrencyConverter
   
@@ -23,7 +23,19 @@ class CurrencyConverter
 
 end
 
+class BitstampMarket
+
+  def quote
+    return Bitstamp.ticker.last.to_f
+  end
+
+end
+
+
 if __FILE__ == $0
   c=CurrencyConverter.new
+  b=BitstampMarket.new
+  q=b.quote;
   puts "100 USD are #{c.usd2eur(100)} EUR"
+  puts "1 BTC is #{q} USD and #{c.usd2eur(q)} EUR"
 end
