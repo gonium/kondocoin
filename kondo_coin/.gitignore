@@ -27,3 +27,5 @@ doc/
 .project
 .DS_Store
 .idea
+/config/application.yml
+voucher.pdf

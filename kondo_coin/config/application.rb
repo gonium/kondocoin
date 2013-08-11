@@ -11,6 +11,11 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+# see http://railscasts.com/episodes/85-yaml-configuration-revised?autoplay=true
+CONFIG = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+CONFIG.merge! CONFIG.fetch(Rails.env, {})
+CONFIG.symbolize_keys!
+
 module KondoCoin
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

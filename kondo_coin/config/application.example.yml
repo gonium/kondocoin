@@ -1,0 +1,4 @@
+# Settings for new voucher creation.
+voucher_count: 10
+voucher_eurovalue: 1.8
+voucher_templatefile: "template.pdf"

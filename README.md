@@ -28,5 +28,15 @@ dummy rails environment and copy the default database.yml from it.
    * siehe (veraltet) http://railscasts.com/episodes/164-cron-in-ruby?autoplay=true
    * https://github.com/javan/whenever
 
+ * Icon fonts:
+   * http://t3n.de/news/10-kostenlose-icon-fonts-450651/?utm_source=feedburner+t3n+News+12.000er&utm_medium=feed&utm_campaign=Feed%3A+aktuell%2Ffeeds%2Frss+%28t3n+News%29
+ * Flat UI for Rails:
+   * http://designmodo.com/flat/
+   * https://github.com/darthdeus/flat-ui-rails
+   * https://github.com/reflection/designmodo-flatuipro-rails
+   * http://stackoverflow.com/questions/17173133/how-can-i-add-the-flat-ui-into-rails
+   * https://github.com/pkurek/flatui-rails
+
+
 
  ruby bitcoin-client gem

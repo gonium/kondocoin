@@ -7,7 +7,8 @@ describe Voucher do
     @voucher = Voucher.new(
               code: "54ec-3a80-9b49-db78-7f5b-df6f",
               eurovalue: 1.8);
-    @v_factory = CodeFactory.new();
+    @c_factory = CodeFactory.new();
+    @v_factory = VoucherFactory.new();
   end
 
   subject {@voucher}
@@ -16,14 +17,39 @@ describe Voucher do
   it { should respond_to(:eurovalue) }
   it { should respond_to(:state) }
 
+  describe "voucherfactory" do
+    it "must generate right number of vouchers" do
+      startcount = Voucher.count
+      @v_factory.create(3)
+      endcount = Voucher.count
+      expect(endcount - startcount).to eq(3)
+    end
+    it "must generate the default number of vouchers" do
+      startcount = Voucher.count
+      @v_factory.create()
+      endcount = Voucher.count
+      expect(endcount - startcount).to eq(CONFIG[:voucher_count])
+    end
+  end
+
+  describe "PDF export" do
+    it "must mark the exported vouchers as active" do
+      @v_factory.create(1)
+      expect( Voucher.with_state(:new).count ).to eq(1)
+      doc=VoucherDocument.new(Voucher.with_state(:new));
+      expect( Voucher.with_state(:new).count ).to eq(0)
+      expect( Voucher.with_state(:active).count ).to eq(1)
+    end
+  end
+
   describe "code" do
     it "must be unique" do
-      v1 = @v_factory.create;
-      v2 = @v_factory.create;
+      v1 = @c_factory.create;
+      v2 = @c_factory.create;
       expect(v1).not_to eq(v2)
     end
     it "must be well-formed" do
-      code = @v_factory.create;
+      code = @c_factory.create;
       expect(code).to match(/^[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}$/)
     end
     describe "must be present" do
