@@ -28,6 +28,9 @@ dummy rails environment and copy the default database.yml from it.
    * siehe (veraltet) http://railscasts.com/episodes/164-cron-in-ruby?autoplay=true
    * https://github.com/javan/whenever
 
+ * Autotab for entering the code:
+   * http://www.mathachew.com/sandbox/jquery-autotab/
+
  * Icon fonts:
    * http://t3n.de/news/10-kostenlose-icon-fonts-450651/?utm_source=feedburner+t3n+News+12.000er&utm_medium=feed&utm_campaign=Feed%3A+aktuell%2Ffeeds%2Frss+%28t3n+News%29
  * Flat UI for Rails:
