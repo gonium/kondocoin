@@ -1,8 +1,10 @@
 KondoCoin::Application.routes.draw do
-  get "checkout/redeem"
-  get "voucher/redeem"
+  #get "checkout/redeem"
+  resources :voucher
   root 'static_pages#home'
   match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/redeem',  to: 'voucher#index',   via: 'get'
+  match '/redeem',  to: 'voucher#redeem',   via: 'post'
   match '/contact', to: 'static_pages#contact', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
