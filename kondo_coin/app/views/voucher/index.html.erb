@@ -2,22 +2,27 @@
 
 <div class="hero-unit">
   <h1>Redeem your voucher now!</h1>
-  <p>Tagline</p>
 
-  <p>
+  <div class="form-inline text-center">
+  <p>Please enter your voucher code here:</p>
   <%= form_for(:voucher, url: redeem_path) do |f| %>
-    <%#=render 'shared/error_messages' %>
-    <%= f.label :code1 %> <%= f.text_field :code1 %>
-    <%= f.label :code2 %>
-    <%= f.text_field :code2 %>
-    <%= f.label :code3 %>
-    <%= f.text_field :code3 %>
-    <%= f.label :code4 %>
-    <%= f.text_field :code4 %>
-    <%= f.label :btc_address %>
-    <%= f.text_field :btc_address %>
+    <ul class="inline">
+      <li><%= f.text_field :code1, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li>&mdash;</li>
+      <li><%= f.text_field :code2, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li>&mdash;</li>
+      <li><%= f.text_field :code3, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li>&mdash;</li>
+      <li><%= f.text_field :code4, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li>&mdash;</li>
+      <li><%= f.text_field :code5, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li>&mdash;</li>
+      <li><%= f.text_field :code6, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+    </ul>
+  <p>Now, we need your wallet address:</p>
+  <p><%= f.text_field :btc_address %></p>
 
-    <%= f.submit "Claim now", class: "btn btn-large btn-primary" %>
+  <p><%= f.submit "Claim now", class: "btn btn-large btn-primary" %><p>
   <% end %>
-  </p>
+  </div>
 </div>
