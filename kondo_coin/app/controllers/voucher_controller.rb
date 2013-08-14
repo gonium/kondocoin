@@ -1,7 +1,7 @@
 class VoucherController < ApplicationController
 
-  attr_accessor :btc_address, 
-    :code1, :code2, :code3, :code4, :code5, :code6
+  #attr_accessor :btc_address, 
+  #  :code1, :code2, :code3, :code4, :code5, :code6
 
   # claiming the bitcoins in here!
   def index
@@ -20,19 +20,28 @@ class VoucherController < ApplicationController
 
     # store voucher id in session
     # see http://guides.rubyonrails.org/action_controller_overview.html#session
-
-    if voucher && params[:voucher][:btc_address]
+    
+    if voucher 
       # Attempt to create payout 
       #flash[:success] = 'You ' 
-      render 'redeem'
+      session[:current_voucher_id] = voucher.id;
+      flash[:success] = session[:current_voucher_id]
+      render 'payout'
     else
       flash[:error] = 'Invalid code.'
       render 'index'
     end
   end
 
-  def success
-    reset_session
+  def payout
+    if params[:voucher][:btc_address] =~ /^[13n][1-9A-Za-z][^OIl]{20,40}/
+      # TODO: Transaction!
+      reset_session
+      render index
+    else
+      flash[:error] = 'Invalid wallet address - please enter a correct one.'
+      render 'payout'
+    end
   end
 
 end

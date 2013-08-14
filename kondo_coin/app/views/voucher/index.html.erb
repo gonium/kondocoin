@@ -19,9 +19,6 @@
       <li>&mdash;</li>
       <li><%= f.text_field :code6, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
     </ul>
-  <p>Now, we need your wallet address:</p>
-  <p><%= f.text_field :btc_address %></p>
-
   <p><%= f.submit "Claim now", class: "btn btn-large btn-primary" %><p>
   <% end %>
   </div>

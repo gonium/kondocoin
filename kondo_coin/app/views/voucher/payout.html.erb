@@ -1,0 +1,19 @@
+<% provide(:title, 'Redeem') %>
+
+<div class="hero-unit">
+  <h1>Your voucher code has been accepted.</h1>
+
+  <p> <%= session[:current_voucher_id] %> </p>
+
+
+  <p> Currently, it is worth BTC TODO</p>
+
+  <div class="form-inline text-center">
+    <p>Please enter your wallet address here:</p>
+    <%= form_for(:voucher, url: payout_path) do |f| %>
+    <p>Now, we need your wallet address:</p>
+    <p><%= f.text_field :btc_address %></p>
+    <p><%= f.submit "Claim now", class: "btn btn-large btn-primary" %><p>
+    <% end %>
+  </div>
+</div>
