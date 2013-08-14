@@ -17,6 +17,10 @@ class VoucherController < ApplicationController
     code += "#{params[:voucher][:code5]}-"
     code += "#{params[:voucher][:code6]}"
     voucher = Voucher.find_by_code(code);
+
+    # store voucher id in session
+    # see http://guides.rubyonrails.org/action_controller_overview.html#session
+
     if voucher && params[:voucher][:btc_address]
       # Attempt to create payout 
       #flash[:success] = 'You ' 
@@ -25,6 +29,10 @@ class VoucherController < ApplicationController
       flash[:error] = 'Invalid code.'
       render 'index'
     end
+  end
+
+  def success
+    reset_session
   end
 
 end
