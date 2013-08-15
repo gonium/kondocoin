@@ -14,7 +14,7 @@ class Voucher < ActiveRecord::Base
 
   validates :wallet, 
     presence: false,
-    uniqueness: { case_sensitive: false},
+    uniqueness: { case_sensitive: true},
     format: {
       :with => /\A[13n][1-9A-Za-z][^OIl]{20,40}\z/,
       :message => "Voucher has invalid wallet address format"
@@ -44,17 +44,3 @@ class Voucher < ActiveRecord::Base
 
 end
 
-class VoucherObserver < ActiveRecord::Observer
-  #def my_logger
-  #  @@my_logger ||= Logger.new("#{Rails.root}/log/voucher.log")
-  #end
-  # Callback for :ignite event *before* the transition is performed
-  def before_ignite(voucher, transition)
-    # log message
-  end
-
-  # Generic transition callback *after* the transition is performed
-  def after_transition(voucher, transition)
-    # TODO: Create trail.
-  end
-end

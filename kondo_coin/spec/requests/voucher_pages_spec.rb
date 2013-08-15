@@ -4,15 +4,19 @@ require 'voucher_tools'
 describe "VoucherPages" do
   before do
     @v_factory = VoucherFactory.new();
-    @v_factory.create(1)
-    @voucher = Voucher.last
-    @voucher.hardcopy! # simulate printing of our voucher.
-    @codesections = @voucher.code.split("-");
   end
 
   let(:basetitle) { "Kondoco.in" }
   let(:btc_invalid_payout_address) { "fjiwerjiowejfiwjefijweio" }
   let(:btc_valid_payout_address) { "1HGXxsFArRRWXWNvztgH3926hk9DA8kCBr" }
+
+  let(:voucher) do
+    @v_factory.create(1)
+    voucher = Voucher.last
+    voucher.hardcopy! # simulate printing of our voucher.
+    return voucher
+  end
+
   subject { page }
 
   describe "enter voucher" do
@@ -30,17 +34,18 @@ describe "VoucherPages" do
 
     describe "with correct voucher code" do
       before do
-        fill_in "voucher_code1", with: @codesections[0];
-        fill_in "voucher_code2", with: @codesections[1];
-        fill_in "voucher_code3", with: @codesections[2];
-        fill_in "voucher_code4", with: @codesections[3];
-        fill_in "voucher_code5", with: @codesections[4];
-        fill_in "voucher_code6", with: @codesections[5];
+        codesections = voucher.code.split("-");
+        fill_in "voucher_code1", with: codesections[0];
+        fill_in "voucher_code2", with: codesections[1];
+        fill_in "voucher_code3", with: codesections[2];
+        fill_in "voucher_code4", with: codesections[3];
+        fill_in "voucher_code5", with: codesections[4];
+        fill_in "voucher_code6", with: codesections[5];
         click_button "Verify voucher now" 
       end
       it { should have_content('code has been accepted') }
       it "must remain in the active state" do
-        expect(@voucher).to be_active
+        expect(voucher).to be_active
       end
     end
   end
@@ -50,13 +55,13 @@ describe "VoucherPages" do
 
     describe "with invalid wallet payout address" do
       before do
-        codesections = @voucher.code.split("-");
-        fill_in "voucher_code1", with: @codesections[0];
-        fill_in "voucher_code2", with: @codesections[1];
-        fill_in "voucher_code3", with: @codesections[2];
-        fill_in "voucher_code4", with: @codesections[3];
-        fill_in "voucher_code5", with: @codesections[4];
-        fill_in "voucher_code6", with: @codesections[5];
+        codesections = voucher.code.split("-");
+        fill_in "voucher_code1", with: codesections[0];
+        fill_in "voucher_code2", with: codesections[1];
+        fill_in "voucher_code3", with: codesections[2];
+        fill_in "voucher_code4", with: codesections[3];
+        fill_in "voucher_code5", with: codesections[4];
+        fill_in "voucher_code6", with: codesections[5];
         click_button "Verify voucher now" 
         fill_in "voucher_btc_address", with: btc_invalid_payout_address
         click_button "Claim now" 
@@ -70,19 +75,20 @@ describe "VoucherPages" do
 
       describe "voucher" do
         it "must remain in the active state" do
-          expect(@voucher).to be_active
+          expect(voucher).to be_active
         end
       end
     end
 
     describe "with valid wallet payout address" do
       before do
-        fill_in "voucher_code1", with: @codesections[0];
-        fill_in "voucher_code2", with: @codesections[1];
-        fill_in "voucher_code3", with: @codesections[2];
-        fill_in "voucher_code4", with: @codesections[3];
-        fill_in "voucher_code5", with: @codesections[4];
-        fill_in "voucher_code6", with: @codesections[5];
+        codesections = voucher.code.split("-");
+        fill_in "voucher_code1", with: codesections[0];
+        fill_in "voucher_code2", with: codesections[1];
+        fill_in "voucher_code3", with: codesections[2];
+        fill_in "voucher_code4", with: codesections[3];
+        fill_in "voucher_code5", with: codesections[4];
+        fill_in "voucher_code6", with: codesections[5];
         click_button "Verify voucher now" 
         fill_in "voucher_btc_address", with: btc_valid_payout_address
         click_button "Claim now" 
@@ -96,7 +102,8 @@ describe "VoucherPages" do
 
       describe "voucher" do
         it "must be in the redeemed state" do
-          expect(@voucher).to be_redeemed
+          db_voucher = Voucher.find(voucher.id);
+          expect(db_voucher).to be_redeemed
         end
       end
     end
