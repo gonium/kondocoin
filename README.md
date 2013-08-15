@@ -13,6 +13,7 @@ dummy rails environment and copy the default database.yml from it.
 
 ### Progress
 
+http://railscasts.com/episodes/257-request-specs-and-capybara
 
 
 ###

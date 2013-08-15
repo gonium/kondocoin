@@ -16,6 +16,7 @@ describe Voucher do
   it { should respond_to(:code) }
   it { should respond_to(:eurovalue) }
   it { should respond_to(:state) }
+  it { should respond_to(:wallet) }
 
   describe "voucherfactory" do
     it "must generate right number of vouchers" do
@@ -73,6 +74,20 @@ describe Voucher do
     describe "must be greater than zero" do
       before {@voucher.eurovalue = 0.0}
       it { should_not be_valid }
+    end
+  end
+
+  describe "wallet" do
+    describe "can be empty" do
+      it { should be_valid }
+    end
+    describe "must follow format conventions" do
+      before {@voucher.wallet = "yadayada" }
+      it { should_not be_valid }
+    end
+    describe "accepts base58 wallet strings (no checksum verification)" do
+      before {@voucher.wallet = "1HGXxsFArRRWXWNvztgH3926hk9DA8kCBr" }
+      it { should be_valid }
     end
   end
 

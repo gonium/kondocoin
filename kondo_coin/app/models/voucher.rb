@@ -11,6 +11,16 @@ class Voucher < ActiveRecord::Base
       :with => /\A[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}\z/,
       :message => "Voucher has invalid code format"
     }
+
+  validates :wallet, 
+    presence: false,
+    uniqueness: { case_sensitive: false},
+    format: {
+      :with => /\A[13n][1-9A-Za-z][^OIl]{20,40}\z/,
+      :message => "Voucher has invalid wallet address format"
+    },
+    :allow_blank => true
+
   validates :eurovalue, 
     presence: true,
     :numericality => {

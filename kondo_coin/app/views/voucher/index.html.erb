@@ -7,19 +7,19 @@
   <p>Please enter your voucher code here:</p>
   <%= form_for(:voucher, url: redeem_path) do |f| %>
     <ul class="inline">
-      <li><%= f.text_field :code1, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li><%= f.text_field :code1, class: "span1 center", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
       <li>&mdash;</li>
-      <li><%= f.text_field :code2, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li><%= f.text_field :code2, class: "span1 center", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
       <li>&mdash;</li>
-      <li><%= f.text_field :code3, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li><%= f.text_field :code3, class: "span1 center", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
       <li>&mdash;</li>
-      <li><%= f.text_field :code4, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li><%= f.text_field :code4, class: "span1 center", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
       <li>&mdash;</li>
-      <li><%= f.text_field :code5, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li><%= f.text_field :code5, class: "span1 center", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
       <li>&mdash;</li>
-      <li><%= f.text_field :code6, class: "span1", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
+      <li><%= f.text_field :code6, class: "span1 center", placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
     </ul>
-  <p><%= f.submit "Claim now", class: "btn btn-large btn-primary" %><p>
+  <p><%= f.submit "Verify voucher now", class: "btn btn-large btn-primary" %><p>
   <% end %>
   </div>
 </div>

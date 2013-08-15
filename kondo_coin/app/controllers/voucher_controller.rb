@@ -25,17 +25,18 @@ class VoucherController < ApplicationController
       # Attempt to create payout 
       #flash[:success] = 'You ' 
       session[:current_voucher_id] = voucher.id;
-      flash[:success] = session[:current_voucher_id]
+      #flash[:success] = session[:current_voucher_id]
       render 'payout'
     else
-      flash[:error] = 'Invalid code.'
+      flash[:error] = 'Invalid voucher code - please try again.'
       render 'index'
     end
   end
 
   def payout
-    if params[:voucher][:btc_address] =~ /^[13n][1-9A-Za-z][^OIl]{20,40}/
-      # TODO: Transaction!
+    current_voucher = Voucher.find_by(session[:current_voucher_id]);
+    if current_voucher.update_attributes(:wallet => params[:voucher][:btc_address])
+      current_voucher.payout!
       reset_session
       render index
     else
