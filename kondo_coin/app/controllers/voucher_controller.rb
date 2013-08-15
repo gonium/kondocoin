@@ -35,14 +35,20 @@ class VoucherController < ApplicationController
 
   def payout
     current_voucher = Voucher.find_by(session[:current_voucher_id]);
-    if current_voucher.update_attributes(:wallet => params[:voucher][:btc_address])
-      current_voucher.payout!
+    wallet_id = params[:voucher][:btc_address]
+    puts "Wallet: #{wallet_id}"
+    if current_voucher.update_attributes(:wallet => wallet_id)
+      puts "Voucher: #{current_voucher.id}"
+      current_voucher.redeem!
       reset_session
-      render index
+      render success
     else
       flash[:error] = 'Invalid wallet address - please enter a correct one.'
       render 'payout'
     end
+  end
+
+  def success
   end
 
 end
