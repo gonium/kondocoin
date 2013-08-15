@@ -91,12 +91,25 @@ describe Voucher do
       @voucher.redeem!
       @voucher.should be_redeemed
     end
+    it "becomes completed after harcopy, redeem and payout actions" do
+      @voucher.should be_new
+      @voucher.hardcopy!
+      @voucher.redeem!
+      @voucher.payout!
+      @voucher.should be_completed
+    end
+ 
     it "cannot be reset after being redeemed" do
       @voucher.should be_new
       @voucher.hardcopy!
       @voucher.redeem!
       expect { @voucher.hardcopy! }.to raise_error
       @voucher.should be_redeemed
+      @voucher.payout!
+      expect { @voucher.payout! }.to raise_error
+      expect { @voucher.hardcopy! }.to raise_error
+      expect { @voucher.redeem! }.to raise_error
+      @voucher.should be_completed
     end
 
   end

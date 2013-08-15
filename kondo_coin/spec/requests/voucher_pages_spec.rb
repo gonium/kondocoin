@@ -11,7 +11,7 @@ describe "VoucherPages" do
   subject { page }
 
   describe "redeem voucher" do
-    before { visit voucher_index_path }
+    before { visit redeem_path }
 
     describe "page" do
       it { should have_content('Redeem') }
@@ -23,7 +23,7 @@ describe "VoucherPages" do
       it { should have_content('Invalid code') }
     end
 
-    describe "with correct information" do
+    describe "with correct voucher code" do
       before do
         @v_factory.create(1)
         voucher = Voucher.last
@@ -34,10 +34,9 @@ describe "VoucherPages" do
         fill_in "voucher_code4", with: codesections[3];
         fill_in "voucher_code5", with: codesections[4];
         fill_in "voucher_code6", with: codesections[5];
-        fill_in "voucher_btc_address", with: :btc_payout_address;
         click_button "Claim now" 
       end
-      it { should have_content('Success!') }
+      it { should have_content('code has been accepted') }
     end
   end
 

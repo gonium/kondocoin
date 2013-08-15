@@ -3,6 +3,7 @@ class Voucher < ActiveRecord::Base
   # TODO: Use params(strong_parameters) to restrict access.
   
   before_save { code.downcase! }
+
   validates :code, 
     presence: true,
     uniqueness: { case_sensitive: false},
@@ -25,6 +26,9 @@ class Voucher < ActiveRecord::Base
     end
     event :redeem do
       transition :active => :redeemed
+    end
+    event :payout do
+      transition :redeemed => :completed
     end
   end
 
