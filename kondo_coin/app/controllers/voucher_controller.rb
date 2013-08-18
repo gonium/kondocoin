@@ -41,7 +41,8 @@ class VoucherController < ApplicationController
     @last_ticker_timestamp = Ticker.last.timestamp
     @current_btc_value = current_voucher.eurovalue / @last_euro_ticker;
     #if current_voucher.valid? #current_voucher.update_attributes(:wallet => wallet_id)
-    if current_voucher.update_attributes(:wallet => wallet_id)
+    if current_voucher.update_attributes(:wallet => wallet_id, :payout_value => @current_btc_value) 
+      # TODO: Write test first, then add current_btc_value to voucher.
       current_voucher.redeem!
       current_voucher.save!
       redirect_to :success

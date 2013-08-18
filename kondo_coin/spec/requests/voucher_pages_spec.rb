@@ -146,6 +146,10 @@ describe "VoucherPages" do
             db_voucher = Voucher.find(voucher.id);
             expect(db_voucher).to be_redeemed
           end
+          it "must have a payout value" do
+            db_voucher = Voucher.find(voucher.id);
+            expect(db_voucher.payout_value).not_to be_nil
+          end
         end
       end
 
