@@ -2,3 +2,13 @@
 voucher_count: 10
 voucher_eurovalue: 1.8
 voucher_templatefile: "template.pdf"
+
+# bitcoind settings - this must match your .bitcoin/bitcoin.conf!
+bitcoind_user: 'bitcoinrpc'
+bitcoind_secret: '2QRWVifGJtcFP7t6GQ73T8tWoUZrNiMLNcxmuAsEuvCv'
+#bitcoind_port: 8332 # for production machines
+bitcoind_port: 18332 # for testnet setups
+
+# The local account name.
+bitcoin_account_name: "default_account"
+
