@@ -14,7 +14,6 @@ class Voucher < ActiveRecord::Base
 
   validates :wallet, 
     presence: false,
-    uniqueness: { case_sensitive: true},
     format: {
       :with => /\A[13n][1-9A-Za-z][^OIl]{20,40}\z/,
       :message => "Voucher has invalid wallet address format"

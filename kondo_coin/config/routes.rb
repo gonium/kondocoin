@@ -7,7 +7,7 @@ KondoCoin::Application.routes.draw do
   match '/redeem',  to: 'voucher#index',   via: 'get'
   match '/redeem',  to: 'voucher#redeem',   via: 'post'
   match '/payout',  to: 'voucher#payout',   via: 'post'
-  match '/success',  to: 'voucher#success',   via: 'post'
+  match '/success',  to: 'voucher#success',   via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

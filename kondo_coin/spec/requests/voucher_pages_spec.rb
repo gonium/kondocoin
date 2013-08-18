@@ -1,13 +1,19 @@
 require 'spec_helper'
 require 'voucher_tools'
+require 'pp'
 
 describe "VoucherPages" do
   before do
     @v_factory = VoucherFactory.new();
+    # put a faked ticker value into the database
+    t=Ticker.create(btc_usd: 2.34,
+                    btc_eur: 3.32,
+                    timestamp: DateTime.now
+                   );
   end
 
   let(:basetitle) { "Kondoco.in" }
-  let(:btc_invalid_payout_address) { "fjiwerjiowejfiwjefijweio" }
+  let(:btc_invalid_payout_address) { "XXXfio" }
   let(:btc_valid_payout_address) { "1HGXxsFArRRWXWNvztgH3926hk9DA8kCBr" }
 
   let(:voucher) do
@@ -15,6 +21,13 @@ describe "VoucherPages" do
     voucher = Voucher.last
     voucher.hardcopy! # simulate printing of our voucher.
     return voucher
+  end
+
+  let(:another_voucher) do
+    @v_factory.create(1)
+    another_voucher = Voucher.last
+    another_voucher.hardcopy! # simulate printing of our voucher.
+    return another_voucher
   end
 
   subject { page }
@@ -43,7 +56,7 @@ describe "VoucherPages" do
         fill_in "voucher_code6", with: codesections[5];
         click_button "Verify voucher now" 
       end
-      it { should have_content('code has been accepted') }
+      it { should have_content('Code accepted!') }
       it "must remain in the active state" do
         expect(voucher).to be_active
       end
@@ -68,7 +81,7 @@ describe "VoucherPages" do
       end
 
       describe "page" do
-        it { should have_content('voucher code has been accepted') }
+        it { should have_content('Code accepted!') }
         it { should have_content('Invalid wallet address') }
         it { should have_title(("#{basetitle} | Redeem")) }
       end
@@ -106,9 +119,65 @@ describe "VoucherPages" do
           expect(db_voucher).to be_redeemed
         end
       end
+
+      describe "another voucher to the same address" do
+        before do
+          visit redeem_path
+          codesections = another_voucher.code.split("-");
+          fill_in "voucher_code1", with: codesections[0];
+          fill_in "voucher_code2", with: codesections[1];
+          fill_in "voucher_code3", with: codesections[2];
+          fill_in "voucher_code4", with: codesections[3];
+          fill_in "voucher_code5", with: codesections[4];
+          fill_in "voucher_code6", with: codesections[5];
+          click_button "Verify voucher now" 
+          fill_in "voucher_btc_address", with: btc_valid_payout_address
+          click_button "Claim now" 
+        end
+
+        describe "page" do
+          it { should have_content('Success') }
+          it { should_not have_content('Invalid wallet address') }
+          it { should have_title(("#{basetitle} | Redeem")) }
+        end
+
+        describe "voucher" do
+          it "must be in the redeemed state" do
+            db_voucher = Voucher.find(voucher.id);
+            expect(db_voucher).to be_redeemed
+          end
+        end
+      end
+
+      describe "the same voucher twice" do
+        before do
+          visit redeem_path
+          codesections = voucher.code.split("-");
+          fill_in "voucher_code1", with: codesections[0];
+          fill_in "voucher_code2", with: codesections[1];
+          fill_in "voucher_code3", with: codesections[2];
+          fill_in "voucher_code4", with: codesections[3];
+          fill_in "voucher_code5", with: codesections[4];
+          fill_in "voucher_code6", with: codesections[5];
+          click_button "Verify voucher now" 
+        end
+
+        describe "page" do
+          it { should have_content('Invalid voucher code') }
+          it { should_not have_content('Invalid wallet address') }
+          it { should have_title(("#{basetitle} | Redeem")) }
+        end
+
+        describe "voucher" do
+          it "must remain in the redeemed state" do
+            db_voucher = Voucher.find(voucher.id);
+            expect(db_voucher).to be_redeemed
+          end
+        end
+      end
+
+
     end
 
   end
-
-
 end
