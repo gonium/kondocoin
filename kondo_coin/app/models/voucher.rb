@@ -27,6 +27,14 @@ class Voucher < ActiveRecord::Base
       :message => "Voucher value must be greater than zero"
     }
 
+  validates :payout_value, 
+    presence: false,
+    :numericality => {
+      :greater_than_or_equal_to => 0.0,
+      :message => "Payout value must be non-negative than zero",
+      :allow_nil => true
+    }
+
   # See https://github.com/pluginaweek/state_machine for state machine
   # documentation.
   state_machine :initial => :new do

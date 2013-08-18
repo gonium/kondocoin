@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815132605) do
+ActiveRecord::Schema.define(version: 20130818202430) do
 
   create_table "tickers", force: true do |t|
     t.float    "btc_usd"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20130815132605) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "wallet"
+    t.float    "payout_value"
   end
 
   add_index "vouchers", ["code"], name: "index_vouchers_on_code", unique: true

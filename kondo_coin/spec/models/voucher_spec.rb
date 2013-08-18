@@ -17,6 +17,7 @@ describe Voucher do
   it { should respond_to(:eurovalue) }
   it { should respond_to(:state) }
   it { should respond_to(:wallet) }
+  it { should respond_to(:payout_value) }
 
   describe "voucherfactory" do
     it "must generate right number of vouchers" do
@@ -76,6 +77,22 @@ describe Voucher do
       it { should_not be_valid }
     end
   end
+
+  describe "payout_value" do
+    describe "must be non-negative" do
+      before {@voucher.payout_value = -1.0}
+      it { should_not be_valid }
+    end
+    describe "must accept nil value" do
+      before {@voucher.payout_value = nil}
+      it { should be_valid }
+    end
+    describe "must accept zero value" do
+      before {@voucher.payout_value = 0.0}
+      it { should be_valid }
+    end
+  end
+
 
   describe "wallet" do
     describe "can be empty" do
