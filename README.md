@@ -46,3 +46,59 @@ http://railscasts.com/episodes/257-request-specs-and-capybara
 
 
  ruby bitcoin-client gem
+
+
+### Deployment
+
+#### Install bitcoind
+See also: https://bitcointalk.org/index.php?topic=1315.0
+Install prerequisites.
+
+    # sudo apt-get install build-essential libboost-all-dev \
+      libssl-dev libdb-dev libglib2.0-dev libdb5.1++-dev \
+      libminiupnpc-dev
+    
+Create a user 'bitcoind'.
+
+    # adduser --system --disabled-login bitcoind
+
+Clone and compile:
+
+    # cd /home/bitcoind
+    # git clone https://github.com/bitcoin/bitcoin.git
+    # cd bitcoin/src
+    # make -f makefile.unix bitcoind
+    # mkdir ~/bin
+    # cp bitcoind ~/bin
+
+Configure bitcoind:
+
+    $ vim /home/bitcoind/.bitcoin/bitcoin.conf
+    rpcuser=bitcoinrpc
+    rpcpassword=5J9QmVr35jTp9ej768ti926Yr27hhfcuF63ZhTsmorRN
+    alertnotify=echo %s | mail -s "Bitcoin Alert" root@localhost
+
+Create startup and log facitilies (using the daemontools)
+
+    $ apt-get install daemontools daemontools-run
+
+    $ mkdir /etc/service/bitcoind
+    $ cat <<__EOF__ > /etc/service/bitcoind/run
+    #!/bin/sh
+    exec setuidgid bitcoind /home/bitcoind/bin/bitcoind 2>&1 
+    __EOF__
+    $ chmod 1755 /etc/service/bitcoind
+    $ chmod +x /etc/service/bitcoind/run
+
+    $ mkdir /etc/service/bitcoind/log
+    $ cat <<__EOF__ > /etc/service/bitcoind/log/run
+    #!/bin/sh
+    exec multilog t /var/log/bitcoind
+    __EOF__
+    $ chmod +x /etc/service/bitcoind/log/run
+    $ mkdir -p /var/log/bitcoind
+
+TODO: This needs more debugging. for now, the bitcoind runs in a tmux.
+
+
+### Installing the rails environment
