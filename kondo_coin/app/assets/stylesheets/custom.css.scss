@@ -33,13 +33,19 @@ textarea {
 }
 
 .center h1 {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+}
+
+.hero-unit {
+  h1 {
+    margin-bottom: 30px;
+  }
 }
 
 h1 {
@@ -90,7 +96,7 @@ footer {
   color: $lightGray  
   a {
     color: $gray;
-   /* &:hover {
+    /* &:hover {
       color: $grayDarker;
     }*/
   }

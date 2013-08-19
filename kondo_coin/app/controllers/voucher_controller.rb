@@ -1,6 +1,6 @@
+require 'pp'
+
 class VoucherController < ApplicationController
-
-
   # claiming the bitcoins in here!
   def index
   end
@@ -20,9 +20,7 @@ class VoucherController < ApplicationController
     
     if voucher && voucher.active?
       # Attempt to create payout 
-      #flash[:success] = 'You ' 
       session[:current_voucher_id] = voucher.id;
-      #flash[:success] = session[:current_voucher_id]
       @last_euro_ticker = Ticker.last.btc_eur
       @last_ticker_timestamp = Ticker.last.timestamp
       @current_btc_value = voucher.eurovalue / @last_euro_ticker;
@@ -36,15 +34,20 @@ class VoucherController < ApplicationController
   def payout
     current_voucher = Voucher.find(session[:current_voucher_id]);
     wallet_id = params[:voucher][:btc_address]
-    current_voucher.wallet = wallet_id
+    session[:current_wallet_id] = wallet_id
     @last_euro_ticker = Ticker.last.btc_eur
     @last_ticker_timestamp = Ticker.last.timestamp
     @current_btc_value = current_voucher.eurovalue / @last_euro_ticker;
-    #if current_voucher.valid? #current_voucher.update_attributes(:wallet => wallet_id)
-    if current_voucher.update_attributes(:wallet => wallet_id, :payout_value => @current_btc_value) 
-      # TODO: Write test first, then add current_btc_value to voucher.
+    #if current_voucher.update_attributes({:wallet => wallet_id, :payout_value => @current_btc_value}) 
+    payout = Payout.new(
+                     wallet: wallet_id,
+                     payout_value: @current_btc_value,
+                     voucher_id: current_voucher.id);
+    #pp current_voucher
+    if payout.valid?
       current_voucher.redeem!
       current_voucher.save!
+      payout.save!
       redirect_to :success
     else
       flash.now[:error] = 'Invalid wallet address - please enter a correct one.'
@@ -53,6 +56,7 @@ class VoucherController < ApplicationController
   end
 
   def success
+    @blockchain_link = "http://www.blockchain.info/address/#{session[:current_wallet_id]}"
     reset_session
   end
 

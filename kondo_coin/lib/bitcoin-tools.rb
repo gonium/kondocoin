@@ -4,7 +4,7 @@ class BitcoinClient
     CONFIG[:bitcoind_user] ||= "bitcoinrpc";
     CONFIG[:bitcoin_account_name] ||= "default";
     @client = Bitcoin::Client.new(CONFIG[:bitcoind_user], CONFIG[:bitcoind_secret])
-    @client.port = 18332
+    @client.port = CONFIG[:bitcoind_port]
     @client.setgenerate(false)
   end
 
@@ -38,10 +38,10 @@ class BitcoinClient
   end
 
   def transfer_to(wallet_id, amount)
-    if client.is_valid_wallet?(args.address)
+    if is_valid_wallet?(wallet_id)
       puts "Sending #{amount} to #{wallet_id}"
       transaction_id = @client.sendtoaddress(wallet_id, amount.to_f);
-      puts "Transferred funds, transaction id is #{transaction_id}"
+      return transaction_id
     else
       raise StandardError("Invalid wallet address")
     end
@@ -50,9 +50,16 @@ class BitcoinClient
   def process_pending_payouts
     pending_vouchers = Voucher.with_state(:redeemed);
     pending_vouchers.each{|voucher|
-      puts "Voucher #{voucher.id} needs payout."
+      payout = Payout.find_by(voucher_id: voucher.id);
+      puts "Processing payout for voucher #{voucher.id}: Transfer BTC #{payout.payout_value} to address #{payout.wallet}"
+      begin
+        transaction_id = transfer_to(payout.wallet, payout.payout_value);
+        puts "Transferred funds, transaction id is #{transaction_id}"
+        voucher.payout!
+      rescue StandardError => e
+        puts "Failed to transfer funds: #{e}"
+      end
     }
   end
-
 
 end

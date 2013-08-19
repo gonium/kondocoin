@@ -66,6 +66,33 @@ describe "VoucherPages" do
   describe "enter wallet" do
     before { visit redeem_path }
 
+    describe "without any wallet payout address" do
+      before do
+        codesections = voucher.code.split("-");
+        fill_in "voucher_code1", with: codesections[0];
+        fill_in "voucher_code2", with: codesections[1];
+        fill_in "voucher_code3", with: codesections[2];
+        fill_in "voucher_code4", with: codesections[3];
+        fill_in "voucher_code5", with: codesections[4];
+        fill_in "voucher_code6", with: codesections[5];
+        click_button "Verify voucher now" 
+        click_button "Claim now" 
+      end
+
+      describe "page" do
+        it { should have_content('Code accepted!') }
+        it { should have_content('Invalid wallet address') }
+        it { should have_title(("#{basetitle} | Redeem")) }
+      end
+
+      describe "voucher" do
+        it "must remain in the active state" do
+          expect(voucher).to be_active
+        end
+      end
+    end
+
+
     describe "with invalid wallet payout address" do
       before do
         codesections = voucher.code.split("-");
@@ -137,6 +164,8 @@ describe "VoucherPages" do
 
         describe "page" do
           it { should have_content('Success') }
+          it { should have_link("Blockchain Wallet Transactions", href:  "http://www.blockchain.info/address/#{btc_valid_payout_address}"
+) }
           it { should_not have_content('Invalid wallet address') }
           it { should have_title(("#{basetitle} | Redeem")) }
         end
@@ -146,9 +175,10 @@ describe "VoucherPages" do
             db_voucher = Voucher.find(voucher.id);
             expect(db_voucher).to be_redeemed
           end
-          it "must have a payout value" do
-            db_voucher = Voucher.find(voucher.id);
-            expect(db_voucher.payout_value).not_to be_nil
+          it "must have a payout entry" do
+            payout = Payout.find_by(voucher_id: voucher.id);
+            expect(payout.payout_value).not_to be_nil
+            expect(payout.wallet).to eq(btc_valid_payout_address)
           end
         end
       end
