@@ -52,11 +52,4 @@ namespace :bitcoin do
   end
 end
 
-namespace :bitcoin do
-  desc "send pending payouts"
-  task :payout => :environment do 
-    client=BitcoinClient.new();
-    client.process_pending_payouts
-  end
-end
 

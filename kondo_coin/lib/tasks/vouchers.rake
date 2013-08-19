@@ -1,4 +1,5 @@
 require 'voucher_tools'
+require 'bitcoin-tools'
 
 namespace :voucher do
   desc "Create a new set of vouchers in the database."
@@ -32,8 +33,6 @@ namespace :voucher do
   end
 end
 
-
-
 namespace :voucher do
   desc "Show all redeemed vouchers from the database."
   task redeemed: :environment do
@@ -63,5 +62,11 @@ namespace :voucher do
   end
 end
 
-
+namespace :voucher do
+  desc "send pending payouts"
+  task :payout => :environment do 
+    client=BitcoinClient.new();
+    client.process_pending_payouts
+  end
+end
 
