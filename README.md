@@ -102,3 +102,5 @@ TODO: This needs more debugging. for now, the bitcoind runs in a tmux.
 
 
 ### Installing the rails environment
+
+Follow http://railscasts.com/episodes/335-deploying-to-a-vps
