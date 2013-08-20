@@ -20,5 +20,9 @@
 # Learn more: http://github.com/javan/whenever
 
 every 5.minutes do
-  rake "ticker:update"
+  rake "ticker:update" 
+end
+
+every 5.minutes do
+  rake "voucher:payout" 
 end

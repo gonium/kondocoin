@@ -28,4 +28,5 @@ doc/
 .DS_Store
 .idea
 /config/application.yml
+public/assets
 voucher.pdf
