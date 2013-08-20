@@ -42,7 +42,7 @@ class BitcoinClient
     if is_valid_wallet?(wallet_id)
       puts "Sending #{amount} to #{wallet_id}"
       #transaction_id = @client.sendtoaddress(wallet_id, amount.to_f);
-      transaction_id = @client.from(CONFIG[:bitcoin_account_name], wallet_id, amount.to_f);
+      transaction_id = @client.sendfrom(CONFIG[:bitcoin_account_name], wallet_id, amount.to_f);
       return transaction_id
     else
       raise StandardError("Invalid wallet address")
