@@ -15,6 +15,7 @@ class BitcoinClient
   def get_account_info
     info = <<-"EOAI"
     The balance of the account #{CONFIG[:bitcoin_account_name]} is BTC #{@client.getbalance(CONFIG[:bitcoin_account_name])}
+    The balance of the default account is BTC #{@client.getbalance()}
     EOAI
   end
 
@@ -40,7 +41,8 @@ class BitcoinClient
   def transfer_to(wallet_id, amount)
     if is_valid_wallet?(wallet_id)
       puts "Sending #{amount} to #{wallet_id}"
-      transaction_id = @client.sendtoaddress(wallet_id, amount.to_f);
+      #transaction_id = @client.sendtoaddress(wallet_id, amount.to_f);
+      transaction_id = @client.from(CONFIG[:bitcoin_account_name], wallet_id, amount.to_f);
       return transaction_id
     else
       raise StandardError("Invalid wallet address")
