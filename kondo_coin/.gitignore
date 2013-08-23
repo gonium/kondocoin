@@ -29,4 +29,5 @@ doc/
 .idea
 /config/application.yml
 public/assets
+coverage
 voucher.pdf
