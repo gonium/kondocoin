@@ -2,6 +2,10 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="en" />
     <%= stylesheet_link_tag "application", media: "all",
                                            "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -9,12 +13,20 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <div class="container-fluid">
     <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
+      <div class="row-fluid">
+        <div class="span8">
+          <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class="span4 sidebar">
+          <%= render 'layouts/logo' %> 
+          <%= render 'layouts/location' %> 
+        </div>
+      </div>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>

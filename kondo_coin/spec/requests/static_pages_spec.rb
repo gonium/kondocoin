@@ -8,7 +8,7 @@ describe "StaticPages" do
   describe "Home page" do
     before { visit root_path }
 
-    it { should have_content('KondoCo.in')}
+    it { should have_content('Buy your first bitcoins!')}
     it { should have_title("#{basetitle}")}
     it { should_not have_title('| Home') }
   end # Describe home page
@@ -20,11 +20,11 @@ describe "StaticPages" do
     it { should have_title("#{basetitle} | About")}
   end # Describe about page
 
-  describe "Contact page" do
-    before { visit contact_path }
+  describe "Imprint page" do
+    before { visit imprint_path }
 
-    it { should have_content('Contact') }
-    it { should have_title("#{basetitle} | Contact")}
+    it { should have_content('Imprint') }
+    it { should have_title("#{basetitle} | Imprint")}
   end # Describe contact page
 
 

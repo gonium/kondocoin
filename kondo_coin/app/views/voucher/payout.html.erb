@@ -1,15 +1,15 @@
 <% provide(:title, 'Redeem') %>
 
-<div class="hero-unit">
   <h1>Code accepted!</h1>
 
   <p>Your voucher code has been accepted. As of <%= localize(@last_ticker_timestamp, :format => :short) %>, it is worth BTC <%= "%3.4f" % @current_btc_value %> (1 BTC = <%= "%3.4f" % @last_euro_ticker %> EUR).</p>
 
-  <div class="form-inline text-center">
-    <%= form_for(:voucher, url: payout_path) do |f| %>
+  <div class="form-inline">
     <p>Now, we need your wallet address:</p>
-    <p><%= f.text_field :btc_address, size: "30" %></p>
-    <p><%= f.submit "Claim now", class: "btn btn-large btn-primary" %><p>
+    <%= form_for(:voucher, url: payout_path) do |f| %>
+    <ul class="inline">
+      <li><%= f.text_field :btc_address, :length => "30", size: "30" %></li>
+      <li><%= f.submit "Claim now", class: "btn btn-primary" %><li>
+    </ul>
     <% end %>
   </div>
-</div>

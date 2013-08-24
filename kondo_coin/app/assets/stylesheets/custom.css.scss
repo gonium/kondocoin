@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 /* mixins, variables, etc. */
 $lightGray: #999;
@@ -18,6 +19,8 @@ html {
 
 body {
   padding-top: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 section {
@@ -42,10 +45,11 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-.hero-unit {
-  h1 {
-    margin-bottom: 30px;
-  }
+
+.redeem_linkbox {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 h1 {
@@ -56,17 +60,31 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
   font-weight: normal;
-  color: $lightGray;
+  margin-top: 35px;
+}
+
+h3 {
+  font-size: 1.5em;
+  letter-spacing: -1px;
+  margin-bottom: 25px;
+  text-align: left;
+  font-weight: normal;
+  margin-top: 35px;
 }
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
+  line-height: 1.4em;
+}
+
+.sidebar {
+  padding-left: 20px;
+  float: right;
 }
 
 /* header */
@@ -136,4 +154,14 @@ footer {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+.vouchercode {
+  margin-top: 30px; 
+  margin-bottom: 30px; 
+}
+
+.codefield {
+  margin-left: -1px; 
+  margin-right: -1px; 
 }

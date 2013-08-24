@@ -1,11 +1,21 @@
-<div class="center hero-unit">
-  <h1>Welcome to KondoCo.in</h1>
+  <h1 class="center">Buy your first bitcoins!</h1>
 
-  <h2>
-    This is a fantastic webservice for converting Coins into Bitcoins. You can learn more on our 
-    <%= link_to "about pages", about_path %>.
-  </h2>
+  <p>kondoco.in is an easy way to buy your first bitcoins:</p>
 
-  <%= link_to "Redeem Code!", redeem_path, class: "btn btn-large btn-primary" %>
+  <ol>
+  <li>You buy a voucher from a vending machine (yes, its an old condom
+    machine).</li>
+  <li>The voucher contains a code which you can enter on this website,
+    along with your wallet id.</li>
+  <li>We then compute the current value of your voucher in bitcoins and
+    transfer the fund to your wallet.</li>
+  </ol>
+
+  <p> You can learn more on our <%= link_to "about page", about_path %>.</p>
+
+  <div class="redeem_linkbox">
+  <p>Already bought a voucher? Redeem here:</p>
+
+  <p><%= link_to "Redeem Voucher!", redeem_path, class: "btn btn-large btn-primary" %></p>
 </div>
 

@@ -3,7 +3,7 @@ KondoCoin::Application.routes.draw do
   #resources :voucher
   root 'static_pages#home'
   match '/about',   to: 'static_pages#about',   via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/imprint', to: 'static_pages#imprint', via: 'get'
   match '/redeem',  to: 'voucher#index',   via: 'get'
   match '/redeem',  to: 'voucher#redeem',   via: 'post'
   match '/payout',  to: 'voucher#payout',   via: 'post'
