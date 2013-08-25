@@ -45,6 +45,11 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+.observe-button {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
 
 .redeem_linkbox {
   margin-top: 50px;
@@ -55,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
@@ -65,7 +70,7 @@ h2 {
   margin-bottom: 30px;
   text-align: left;
   font-weight: normal;
-  margin-top: 35px;
+  margin-top: 45px;
 }
 
 h3 {
@@ -104,6 +109,11 @@ p {
     text-decoration: none;
   }
 }
+
+.navbar {
+  margin-bottom: 45px;
+}
+
 
 /* footer */
 

@@ -14,9 +14,9 @@
   </head>
   <body>
     <div class="container-fluid">
-    <%= render 'layouts/header' %>
       <div class="row-fluid">
         <div class="span8">
+          <%= render 'layouts/header' %>
           <% flash.each do |key, value| %>
           <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>

@@ -2,13 +2,14 @@
 
   <h1>Code accepted!</h1>
 
-  <p>Your voucher code has been accepted. As of <%= localize(@last_ticker_timestamp, :format => :short) %>, it is worth BTC <%= "%3.4f" % @current_btc_value %> (1 BTC = <%= "%3.4f" % @last_euro_ticker %> EUR).</p>
+  <p>As of <%= localize(@last_ticker_timestamp, :format => :short) %>, your voucher is worth <%= "%3.4f" % @current_btc_value %> BTC (1 BTC = <%= "%3.4f" % @last_euro_ticker %> EUR). Please note that the exchange rate is calculated using the Bitstamp exchange rate and the ECB USD-EUR conversion rate. It will be updated every five minutes.</p>
 
+  <h2>Step 2: Enter your wallet id</h2>
+  <p>Once you enter a wallet id, we invalidate your voucher immediately. When the funds have been sent to your wallet id, there is no way for us to cancel the transfer. In your own interest: please make sure to enter a correct address.</p>
   <div class="form-inline">
-    <p>Now, we need your wallet address:</p>
     <%= form_for(:voucher, url: payout_path) do |f| %>
     <ul class="inline">
-      <li><%= f.text_field :btc_address, :length => "30", size: "30" %></li>
+      <li><%= f.text_field :btc_address, :length => 30, :size => 30, :class => "input-xlarge", :placeholder => "1pznyMYhzcqYT6Ft1NyoHfrMvUF7651PC" %></li>
       <li><%= f.submit "Claim now", class: "btn btn-primary" %><li>
     </ul>
     <% end %>

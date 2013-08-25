@@ -2,8 +2,11 @@
 
   <h1>Redeem your voucher now!</h1>
 
+  <p>Redeeming your voucher is a two-step process. First, you need to enter the voucher code. If it is valid, you will be redirected to a second step where you can enter your wallet id. Please create a wallet if you don't have one yet. For beginners, I recommend the <a href="http://electrum.org">Electrum wallet</a>.</p>
+  
+  <h2>Step 1: Enter your voucher code</h2>
+  <p>Only the letters a-f and the number 0-9 are used within your voucher code. If you enter a O as in Octopus, try entering a 0 as in 007.</p>
   <div class="form-inline">
-  <p>Please enter your voucher code here:</p>
   <%= form_for(:voucher, url: redeem_path) do |f| %>
     <ul class="inline vouchercode">
       <li><%= f.text_field :code1, :class => "center codefield input-block-level", :length => 4, placeholder: "0000", size: "4", pattern: "[A-Fa-f0-9]{4}" %></li>
