@@ -50,26 +50,35 @@ class VoucherDocument < Prawn::Document
   def render_code(voucher)
     font("Courier") do
       text_box "#{voucher.code}",
-        :at => [100, 400],
+        :at => [60, 275],
         :height => 100,
         :width => 800,
-        size: 30, 
+        size: 36, 
         style: :bold
     end
   end
 
   def render_eurovalue(voucher)
-      text_box "EUR #{'%2.2f' % voucher.eurovalue}",
-        :at => [20, 300],
+    font("Courier") do
+      text_box "EUR\n#{'%2.2f' % voucher.eurovalue}",
+        :at => [620, 180],
         :height => 100,
         :width => 500,
-        size: 30, 
+        size: 36, 
         style: :bold
+    end
   end
 
 
 
   def render_support_text(voucher)
-    text "#{voucher.id}"
+    font("Courier") do
+      text_box "Voucher No. #{voucher.id}",
+        :at => [620, 15],
+        :height => 100,
+        :width => 200,
+        size: 12, 
+        style: :normal
+    end
   end
 end
