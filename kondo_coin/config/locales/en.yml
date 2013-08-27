@@ -21,3 +21,56 @@
 
 en:
   hello: "Hello world"
+  email: "hello@kondoco.in"
+  static_pages:
+    home:
+      title: "Buy your first bitcoins!"
+      lead: "kondoco.in is an easy way to buy your first bitcoins:"
+      threesteps: |
+        You buy a voucher from a vending machine (yes, its an old condom machine).
+        The voucher contains a code which you can enter on this website, along with your wallet id.
+        We then compute the current value of your voucher in bitcoins and transfer the fund to your wallet.
+      learnmore: "You can learn more on our "
+      about_link: "about page"
+      alreadybought: "Already bought a voucher?"
+      redeem_button: "Redeem Voucher now!"
+    about:
+      title: "About kondoco.in"
+      lead: |
+        The kondoco.in bitcoin vending machine provides a simple way for newcomers to obtain bitcoins. It is not suitable for buying large amounts of bitcoins, but perfect for your first bitcoin. If you have questions please contact us at
+      faq: "Frequently asked questions"
+      nowallet:
+        question: "I don't have a bitcoin wallet. Can you recommend one?"
+        answer: |
+          There are many bitcoin wallets available, ranging from paper wallets to android applications. All have specific advantages and disadvantages. For beginners, I recommend the Electrum Bitcoin Wallet since you do not have to download the blockchain and it works on a variety of devices.
+      o0confusion: 
+        question: "I entered my voucher code, but the system does not accept it."
+        answer: "Please note that there is no \"O\" (the letter) in the code. The code
+    consists of the numbers 0-9 and the letters a-f. If you entered an \"O\"
+    as in Octopus, try a zero as in 007 instead."
+      blockchainlink:
+        question: "When I redeemed my voucher, there was a link showing the
+                    transaction in the blockchain. How can I find it again?"
+        answer: "The blockchain is bitcoin's way of tracking who owns what. Since the blockchain is public, you can use sites such as blockchain.info to observe what is happening. When you enter your wallet id on such a site, you can see your transaction being processed."
+      profit:
+        question: "How much do you make?"
+        answer: "Nothing. After paying for the server, the packaging and the condom
+    machine itself I loose money."
+      donations:
+        question: "That is sad. Do you accept donations?"
+        answer: "Yes, I do. Please send donations to 1MSa5eECnZsuzm4jTVCGbUkGNUXnqpVDjy."
+      ownmachine:
+        question: "This is a neat idea. Can I build one myself?"
+        answer: "Absolutely! You just need a vending machine of some kind. The server
+    software is available on github. Have fun!" 
+    imprint:
+      title: "Imprint"
+      contact: "If you have questions please contact us at"
+
+  voucher:
+    index:
+      title: "Redeem your voucher now!"
+      lead: "Redeeming your voucher is a two-step process. First, you need to enter the voucher code. If it is valid, you will be redirected to a second step where you can enter your wallet id. Please create a wallet if you don't have one yet. For beginners, I recommend the Electrum wallet."
+      step1_title: "Step 1: Enter your voucher code"
+      step1_text: "Only the letters a-f and the number 0-9 are used within your voucher code. If you enter a O as in Octopus, try entering a 0 as in 007."
+      step1_submit_button: "Verify voucher now"

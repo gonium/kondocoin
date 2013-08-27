@@ -1,56 +1,41 @@
 <% provide(:title, 'About') %>
-<h1>About KondoCo.in</h1>
-<p>The kondoco.in bitcoin vending machine provides a simple way for
-newcomers to obtain bitcoins. It is not suitable for buying large
-amounts of bitcoins, but perfect for your first bitcoin. If you have
-questions please contact us at</p>
+<h1><%= t ".title" %></h1>
+<p><%= t ".lead" %></p>
 
 <div class="center">
-  <p><i class="icon-envelope"> </i> hello@kondoco.in</p>
+  <p><i class="icon-envelope"> </i> <%= t "email" %></p>
 </div>
 
-  <h2>Frequently asked questions</h2>
+<h2><%= t ".faq" %></h2>
 
   <ol>
     <li>
-    <p><strong>I don't have a bitcoin wallet. Can you recommend one?</strong></p>
-    <p>There are many bitcoin wallets available, ranging from paper wallets to android applications. All have specific advantages and disadvantages. For beginners, I recommend the <a href="http://electrum.org">Electrum Bitcoin Wallet</a> since you do not have to download the blockchain and it works on a variety of devices.
-    </p>
+    <p><strong><%= t ".nowallet.question" %></strong></p>
+    <p><%= t ".nowallet.answer" %></p>
     </li>
 
     <li>
-    <p><strong>I entered my voucher code, but the system does not accept it.</strong></p>
-    <p>Please note that there is no "O" (the letter) in the code. The code
-    consists of the numbers 0-9 and the letters a-f. If you entered an "O"
-    as in Octopus, try a zero as in 007 instead.</p>
+    <p><strong><%= t ".o0confusion.question" %></strong></p>
+    <p><%= t ".o0confusion.answer" %></p>
     </li>
 
     <li>
-    <p><strong>When I redeemed my voucher, there was a link showing the
-      transaction in the blockchain. How can I find it
-      again?</strong>
-    </p> 
-    <p>The blockchain is bitcoin's way of tracking who owns what. Since
-    the blockchain is public, you can use sites such as <a
-      href="http://blockchain.info">blockchain.info</a> to observe what
-    is happening. When you enter your wallet id on such a site, you can
-    see your transaction being processed.  </p> 
+    <p><strong><%= t ".blockchainlink.question" %></strong></p>
+    <p><%= t ".blockchainlink.answer" %></p>
     </li>
 
     <li>
-    <p><strong>How much do you make?</strong></p>
-    <p>Nothing. After paying for the server, the packaging and the condom
-    machine itself I loose money.</p>
+    <p><strong><%= t ".profit.question" %></strong></p>
+    <p><%= t ".profit.answer" %></p>
     </li>
 
     <li>
-    <p><strong>That is sad. Do you accept donations?</strong></p>
-    <p>Yes, I do. Please send donations to 1MSa5eECnZsuzm4jTVCGbUkGNUXnqpVDjy.<p>
+    <p><strong><%= t ".donations.question" %></strong></p>
+    <p><%= t ".donations.answer" %></p>
     </li>
 
     <li>
-    <p><strong>This is a neat idea. Can I build one myself?</strong></p>
-    <p>Absolutely! You just need a vending machine of some kind. The server
-    software is available on github. Have fun!</p>
+    <p><strong><%= t ".ownmachine.question" %></strong></p>
+    <p><%= t ".ownmachine.answer" %></p>
     </li> 
   </ol>

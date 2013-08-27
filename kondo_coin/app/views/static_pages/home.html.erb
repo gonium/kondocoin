@@ -1,21 +1,17 @@
-  <h1 class="center">Buy your first bitcoins!</h1>
+<h1 class="center"><%= t ".title" %></h1>
 
-  <p>kondoco.in is an easy way to buy your first bitcoins:</p>
+<p><%= t ".lead" %></p>
 
-  <ol>
-  <li>You buy a voucher from a vending machine (yes, its an old condom
-    machine).</li>
-  <li>The voucher contains a code which you can enter on this website,
-    along with your wallet id.</li>
-  <li>We then compute the current value of your voucher in bitcoins and
-    transfer the fund to your wallet.</li>
-  </ol>
+<ol>
+  <% t(:'.threesteps').each_line do |point| %>
+  <li><%= point %></li>
+  <% end %>
+</ol>
 
-  <p> You can learn more on our <%= link_to "about page", about_path %>.</p>
+<p><%= t ".learnmore" %><%= link_to t(".about_link"), about_path %>.</p>
 
-  <div class="redeem-linkbox">
-  <p>Already bought a voucher?</p>
-
-  <p><%= link_to "Redeem Voucher!", redeem_path, class: "btn btn-large btn-primary" %></p>
+<div class="redeem-linkbox">
+  <p><%= t ".alreadybought" %></p>
+  <p><%= link_to t(".redeem_button"), redeem_path, class: "btn btn-large btn-primary" %></p>
 </div>
 

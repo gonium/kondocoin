@@ -11,11 +11,6 @@ If the app complains about a missing database.yml, please generate a
 dummy rails environment and copy the default database.yml from it.
 
 
-### Progress
-
-http://railscasts.com/episodes/257-request-specs-and-capybara
-
-
 ###
 
  * [Bitcoind JSON-RPC API](https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)#Ruby)
@@ -42,6 +37,8 @@ http://railscasts.com/episodes/257-request-specs-and-capybara
    * https://github.com/reflection/designmodo-flatuipro-rails
    * http://stackoverflow.com/questions/17173133/how-can-i-add-the-flat-ui-into-rails
    * https://github.com/pkurek/flatui-rails
+ * I18N:
+   * http://thepugautomatic.com/2012/07/rails-i18n-tips/
 
 
 
