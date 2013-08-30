@@ -74,3 +74,16 @@ en:
       step1_title: "Step 1: Enter your voucher code"
       step1_text: "Only the letters a-f and the number 0-9 are used within your voucher code. If you enter a O as in Octopus, try entering a 0 as in 007."
       step1_submit_button: "Verify voucher now"
+    payout:
+      title: "Code accepted!"
+      lead1: "As of "
+      lead2: ", your voucher is worth "
+      lead3: "EUR). Please note that the exchange rate is calculated using the Bitstamp exchange rate and the ECB USD-EUR conversion rate. It will be updated every five minutes."
+
+      step2_title: "Step 2: Enter your wallet id"
+      step2_text: "Once you enter a wallet id, we invalidate your voucher immediately. When the funds have been sent to your wallet id, there is no way for us to cancel the transfer. In your own interest: please make sure to enter a correct address."
+      step2_submit_button: "Claim now"
+    success:
+      title: "Success!"
+      lead: "Your bitcoins are on their way. Our minions typically need five minutes to process the payout.  After that, the bitcoin network needs to confirm the payout of your voucher. You can observe the transfer here:"
+      blockchain_button: "Blockchain Wallet Transactions"

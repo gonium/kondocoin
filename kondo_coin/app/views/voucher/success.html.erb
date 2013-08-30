@@ -1,10 +1,8 @@
 <% provide(:title, 'Redeem') %>
+<h1><%= t ".title" %></h1>
 
-  <h1>Success!</h1>
-  <p>Your bitcoins are on their way. Our minions typically need five minutes to process the payout. 
-  After that, the bitcoin network needs to confirm the payout of your voucher. You can observe 
-  the transfer here:</p>
-  <p class="observe-button">
-  <%= link_to "Blockchain Wallet Transactions", @blockchain_link, class: "btn btn-large btn-primary" %>
-  </p>
-  
+<p><%= t(".lead") %></p>
+<p class="observe-button">
+<%= link_to t(".blockchain_button"), @blockchain_link, class: "btn btn-large btn-primary" %>
+</p>
+
