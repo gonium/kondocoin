@@ -3,9 +3,20 @@
   <div class="container">
     <nav>
     <ul class="nav pull-left">
-      <li><%= link_to t(".home_link"), root_path %></li>
+      <li><%= link_to t(".home_link"), home_path %></li>
+      <li class="divider-vertical"></li>
       <li><%= link_to t(".about_link"), about_path %></li>
+      <li class="divider-vertical"></li>
       <li><%= link_to t(".redeem_link"), redeem_path %></li>
+    </ul>
+    <ul class="nav pull-right">
+      <li>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t("language_selector") %> <b class="caret"></b></a>
+        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+          <li><%= link_to "Deutsch", locale: "de" %></li>
+          <li><%= link_to "English", locale: "en" %></li>
+        </ul>
+      </li>
     </ul>
     </nav>
   </div>
