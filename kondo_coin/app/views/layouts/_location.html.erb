@@ -1,5 +1,6 @@
 <div class="location">
-  <h3>Current location</h3>
-  <p>The kondoco.in is currently at home and not accessible. It is looking forward to meet you at the <a href="http://mrmcd.net">MRMCD 2013</a> in Darmstadt, Germany.
-  <p>A more detailed description (including a picture) of its on-event location will be posted here.</p>
+  <h3><%= t ".title" %></h3>
+  <p>
+  <%= t(".description", :href => (link_to(t(".location_name"), t(".location_url")))).html_safe %>
+  </p>
 </div>

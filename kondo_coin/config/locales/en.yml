@@ -22,6 +22,23 @@
 en:
   hello: "Hello world"
   email: "hello@kondoco.in"
+  layouts:
+    location:
+      title: "Current location"
+      description: |
+        The kondoco.in is currently at home and not accessible. It is looking forward to meet you at the %{href} in Darmstadt, Germany.
+        A more detailed description (including a picture) of its on-event location will be posted here.
+      location_url: "http://mrmcd.net"
+      location_name: "MRMCD 2013"
+    header:
+      home_link: "Home"
+      about_link: "About"
+      redeem_link: "Redeem"
+    footer:
+      projectname: "The Kondocoin project"
+      by_stmt: "by"
+      about_link: "About"
+      imprint_link: "Imprint"
   static_pages:
     home:
       title: "Buy your first bitcoins!"
@@ -87,3 +104,4 @@ en:
       title: "Success!"
       lead: "Your bitcoins are on their way. Our minions typically need five minutes to process the payout.  After that, the bitcoin network needs to confirm the payout of your voucher. You can observe the transfer here:"
       blockchain_button: "Blockchain Wallet Transactions"
+    
