@@ -15,16 +15,13 @@
   <body>
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span8">
+        <div class="span12">
           <%= render 'layouts/header' %>
+          <%= render 'layouts/logo' %> 
           <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
           <%= yield %>
-        </div>
-        <div class="span4 sidebar">
-          <%= render 'layouts/logo' %> 
-          <%= render 'layouts/location' %> 
         </div>
       </div>
       <%= render 'layouts/footer' %>

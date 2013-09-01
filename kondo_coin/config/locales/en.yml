@@ -1,38 +1,11 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   email: "hello@kondoco.in"
   language_selector: "Sprache"
   layouts:
-    location:
-      title: "Current location"
-      description: |
-        The kondocoin is currently at home and not accessible. It is looking forward to meet you at the %{href} in Darmstadt, Germany.
-        A more detailed description (including a picture) of its on-event location will be posted here.
-      location_url: "http://mrmcd.net"
-      location_name: "MRMCD 2013"
     header:
       home_link: "Home"
       about_link: "About"
+      where_link: "Where"
       redeem_link: "Redeem"
     footer:
       projectname: "The Kondocoin project"
@@ -42,7 +15,7 @@ en:
   static_pages:
     home:
       title: "Buy your first bitcoins!"
-      lead: "kondoco.in is an easy way to buy your first bitcoins:"
+      lead: "Kondocoin is an easy way to buy your first bitcoins:"
       threesteps: |
         You buy a voucher from a vending machine (yes, its an old condom machine).
         The voucher contains a code which you can enter on this website, along with your wallet id.
@@ -51,6 +24,14 @@ en:
       about_link: "about page"
       alreadybought: "Already bought a voucher?"
       redeem_button: "Redeem Voucher now!"
+    where:
+      title: "Current location"
+      description: |
+        The kondocoin is currently at home and not accessible. It is looking forward to meet you at the %{href} in Darmstadt, Germany.
+        A more detailed description (including a picture) of its on-event location will be posted here.
+      location_url: "http://mrmcd.net"
+      location_name: "MRMCD 2013"
+
     about:
       title: "About kondoco.in"
       lead: |

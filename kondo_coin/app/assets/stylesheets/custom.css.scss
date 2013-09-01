@@ -39,6 +39,10 @@ textarea {
   resize: vertical;
 }
 
+.navbar {
+  margin-bottom: 50px;
+}
+
 .center {
   text-align: center;
 }
@@ -62,11 +66,13 @@ h1, h2, h3, h4, h5, h6 {
 .redeem-linkbox {
   margin-top: 50px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
 .logo-image {
-  margin-bottom: 30px;
+  max-width: 23%;
+  margin-left: 10%;
+	padding: 0 0 3% 0;
   float: right;
 }
 

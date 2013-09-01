@@ -5,6 +5,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def where
+  end
+
   def imprint
   end
 end

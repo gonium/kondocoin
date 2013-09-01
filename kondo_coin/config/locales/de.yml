@@ -1,37 +1,11 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 de:
   email: "hallo@kondoco.in"
   language_selector: "Language"
   layouts:
-    location:
-      title: "Aktueller Aufstellungsort"
-      description: |
-        Der Kondocoin ist momentan zuhause und leider nicht verfügbar. Er freut sich aber schon auf den nächsten Event, die %{href} in Darmstadt. Weitere Informationen und ein Bild des Aufstellungsorts werden hier eingepflegt werden.
-      location_url: "http://mrmcd.net"
-      location_name: "MRMCD 2013"
     header:
       home_link: "Start"
       about_link: "Über"
+      where_link: "Wo"
       redeem_link: "Einlösen"
     footer:
       projectname: "Das Kondocoin Projekt"
@@ -41,26 +15,32 @@ de:
   static_pages:
     home:
       title: "Kauf Deine ersten Bitcoins!"
-      lead: "kondoco.in is an easy way to buy your first bitcoins:"
+      lead: "Kondocoin ist ein einfacher Weg, Deine ersten Bitcoins zu kaufen:"
       threesteps: |
-        You buy a voucher from a vending machine (yes, its an old condom machine).
-        The voucher contains a code which you can enter on this website, along with your wallet id.
-        We then compute the current value of your voucher in bitcoins and transfer the fund to your wallet.
-      learnmore: "You can learn more on our "
-      about_link: "about page"
-      alreadybought: "Already bought a voucher?"
-      redeem_button: "Redeem Voucher now!"
+        Du kaufst einen Gutschein an einem Automaten (ja, das ist ein alter Kondomautomat). 
+        Der Gutschein enthält einen Code, den Du auf dieser Webseite eingeben kannst - zusammen mit Deine Wallet-Adresse.
+        Wir berechnen dann den aktuellen Gegenwert Deines Gutscheins in Bitcoins und überweisen Dir Deine Bitcoins. Fertig!
+      learnmore: "Mehr Details findest Du auf unserer "
+      about_link: "über uns-Seite"
+      alreadybought: "Schon einen Gutschein gekauft?"
+      redeem_button: "Gutschein einlösen!"
+    where:
+      title: "Aktueller Aufstellungsort"
+      description: |
+        Der Kondocoin ist momentan zuhause und leider nicht verfügbar. Er freut sich aber schon auf den nächsten Event, die %{href} in Darmstadt. Weitere Informationen und ein Bild des Aufstellungsorts werden hier eingepflegt werden.
+      location_url: "http://mrmcd.net"
+      location_name: "MRMCD 2013"
     about:
-      title: "About kondoco.in"
+      title: "Über Kondocoin"
       lead: |
-        The kondoco.in bitcoin vending machine provides a simple way for newcomers to obtain bitcoins. It is not suitable for buying large amounts of bitcoins, but perfect for your first bitcoin. If you have questions please contact us at
+        Der Kondocoin Bitcoin-Automat ist ein einfacher Weg, die ersten Bitcoins zu kaufen. Er eignet sich nicht für große Mengen von Bitcoins, ist aber dafür perfekt für Neulinge. Wenn Du Fragen hast wende Dich bitte an
       faq: "Frequently asked questions"
       nowallet:
-        question: "I don't have a bitcoin wallet. Can you recommend one?"
+        question: "Ich habe noch kein Bitcoin wallet. Könnt Ihr eins empfehlen?"
         answer: |
-          There are many bitcoin wallets available, ranging from paper wallets to android applications. All have specific advantages and disadvantages. For beginners, I recommend the Electrum Bitcoin Wallet since you do not have to download the blockchain and it works on a variety of devices.
+          Es gibt viele Bitcoin wallets für jeden Einsatzzweck, vom papierbasierten Wallet bis hin zur Android-App. Für Einsteiger ist das Electrum Bitcoin Wallet recht gut geeignet: Damit muss man die Blockchain nicht herunterladen und kann direkt loslegen.
       o0confusion: 
-        question: "I entered my voucher code, but the system does not accept it."
+        question: "Ich habe meinen Code mehrmals eingegeben, aber die Webseite akzeptiert den Code nicht."
         answer: "Please note that there is no \"O\" (the letter) in the code. The code
     consists of the numbers 0-9 and the letters a-f. If you entered an \"O\"
     as in Octopus, try a zero as in 007 instead."

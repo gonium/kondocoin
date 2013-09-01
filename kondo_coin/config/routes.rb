@@ -2,15 +2,15 @@ KondoCoin::Application.routes.draw do
   #get "checkout/redeem"
   #resources :voucher
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
-    #root 'static_pages#home'
-    match '/',   to: 'static_pages#home',   via: 'get'
-    match '/home',   to: 'static_pages#home',   via: 'get'
+    match '/',        to: 'static_pages#home',   via: 'get'
+    match '/home',    to: 'static_pages#home',   via: 'get'
     match '/about',   to: 'static_pages#about',   via: 'get'
+    match '/where',   to: 'static_pages#where',   via: 'get'
     match '/imprint', to: 'static_pages#imprint', via: 'get'
     match '/redeem',  to: 'voucher#index',   via: 'get'
     match '/redeem',  to: 'voucher#redeem',   via: 'post'
     match '/payout',  to: 'voucher#payout',   via: 'post'
-    match '/success',  to: 'voucher#success',   via: 'get'
+    match '/success', to: 'voucher#success',   via: 'get'
   end
   match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), 
     constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" },
