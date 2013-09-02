@@ -19,6 +19,10 @@ The basic operation works like this:
 
 TODO: More detailed description of the operation.
 
+You can see a live (and operational) version of this software here:
+
+    https://kondoco.in/
+
 ### WARNING
 
 This software was carefully developed and tested. However, I cannot
