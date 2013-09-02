@@ -14,6 +14,24 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+
+## Monkeypatch from http://stackoverflow.com/questions/17266904/rails-rspec-view-with-locale-no-route-matches
+#class ActionDispatch::Routing::RouteSet
+#  def url_for_with_locale_fix(options)
+#    url_for_without_locale_fix({:locale => I18n.default_locale}.merge(options))
+#  end
+#  alias_method_chain :url_for, :locale_fix
+#end
+#
+
+class ActionView::TestCase 
+  class TestController
+    def default_url_options
+      {:locale => 'en'}
+    end
+  end
+end
+
 RSpec.configure do |config|
   # ## Mock Framework
   #

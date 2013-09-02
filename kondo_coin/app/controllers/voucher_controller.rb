@@ -1,12 +1,8 @@
-require 'pp'
-
 class VoucherController < ApplicationController
-  # claiming the bitcoins in here!
   def index
   end
 
   def redeem
-    # TODO: Compose voucher code, search in DB.
     code = "#{params[:voucher][:code1]}-"
     code += "#{params[:voucher][:code2]}-"
     code += "#{params[:voucher][:code3]}-"
@@ -14,10 +10,6 @@ class VoucherController < ApplicationController
     code += "#{params[:voucher][:code5]}-"
     code += "#{params[:voucher][:code6]}"
     voucher = Voucher.find_by_code(code);
-
-    # store voucher id in session
-    # see http://guides.rubyonrails.org/action_controller_overview.html#session
-    
     if voucher && voucher.active?
       # Attempt to create payout 
       session[:current_voucher_id] = voucher.id;
@@ -26,7 +18,7 @@ class VoucherController < ApplicationController
       @current_btc_value = voucher.eurovalue / @last_euro_ticker;
       render :payout
     else
-      flash.now[:error] = 'Invalid voucher code - please try again.'
+      flash.now[:error] = t("invalid_voucher_code")
       render :index
     end
   end
@@ -43,14 +35,13 @@ class VoucherController < ApplicationController
                      wallet: wallet_id,
                      payout_value: @current_btc_value,
                      voucher_id: current_voucher.id);
-    #pp current_voucher
     if payout.valid?
       current_voucher.redeem!
       current_voucher.save!
       payout.save!
       redirect_to :success
     else
-      flash.now[:error] = 'Invalid wallet address - please enter a correct one.'
+      flash.now[:error] = t("invalid_wallet_id")
       render :payout
     end
   end

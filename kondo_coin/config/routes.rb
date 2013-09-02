@@ -1,7 +1,11 @@
 KondoCoin::Application.routes.draw do
-  #get "checkout/redeem"
-  #resources :voucher
-  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+  # For testing: Pin the locale to :en
+  if Rails.env.test?
+    defaults = {:locale => 'en'}
+  else
+    defaults = {}
+  end
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/, :defaults => defaults do
     match '/',        to: 'static_pages#home',   via: 'get'
     match '/home',    to: 'static_pages#home',   via: 'get'
     match '/about',   to: 'static_pages#about',   via: 'get'

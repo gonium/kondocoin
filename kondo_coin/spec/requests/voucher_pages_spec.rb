@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'voucher_tools'
 require 'pp'
 
+
 describe "VoucherPages" do
   before do
     @v_factory = VoucherFactory.new();
@@ -36,7 +37,7 @@ describe "VoucherPages" do
     before { visit redeem_path }
 
     describe "page" do
-      it { should have_content('Redeem') }
+      it { should have_content("Redeem your voucher now!") }
       it { should have_title(("#{basetitle} | Redeem")) }
     end
 
@@ -64,7 +65,7 @@ describe "VoucherPages" do
   end
 
   describe "enter wallet" do
-    before { visit redeem_path }
+    before { visit redeem_path}
 
     describe "without any wallet payout address" do
       before do

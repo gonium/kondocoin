@@ -8,7 +8,7 @@ describe "StaticPages" do
   describe "Home page" do
     before { visit root_path }
 
-    it { should have_content('Buy your first bitcoins!')}
+    it { should have_content('Kondocoin')}
     it { should have_title("#{basetitle}")}
     it { should_not have_title('| Home') }
   end # Describe home page

@@ -1,6 +1,8 @@
 de:
   email: "hallo@kondoco.in"
-  language_selector: "Language"
+  language_selector: "Change Language"
+  invalid_voucher_code: "Ungültiger Gutscheincode. Bitte versuche es nochmal!"
+  invalid_wallet_id: "Ungültige Wallet-ID: Bitte gib eine richtige an."
   layouts:
     header:
       home_link: "Start"
@@ -41,46 +43,47 @@ de:
           Es gibt viele Bitcoin wallets für jeden Einsatzzweck, vom papierbasierten Wallet bis hin zur Android-App. Für Einsteiger ist das Electrum Bitcoin Wallet recht gut geeignet: Damit muss man die Blockchain nicht herunterladen und kann direkt loslegen.
       o0confusion: 
         question: "Ich habe meinen Code mehrmals eingegeben, aber die Webseite akzeptiert den Code nicht."
-        answer: "Please note that there is no \"O\" (the letter) in the code. The code
-    consists of the numbers 0-9 and the letters a-f. If you entered an \"O\"
-    as in Octopus, try a zero as in 007 instead."
+        answer: "Bitte beachte, dass es kein \"O\" (der Buchstabe) im Code gibt. Der Code besteht nur 
+    aus den Ziffern 0-9 und aus den Buchstaben a-f. Wenn Du ein \"O\" wie in Oktopus eingegeben hast, probiere
+    bitte eine Null wie in 007."
       blockchainlink:
-        question: "When I redeemed my voucher, there was a link showing the
-                    transaction in the blockchain. How can I find it again?"
-        answer: "The blockchain is bitcoin's way of tracking who owns what. Since the blockchain is public, you can use sites such as blockchain.info to observe what is happening. When you enter your wallet id on such a site, you can see your transaction being processed."
+        question: "Beim Einlösen meines Gutscheins wurde mir ein Link angezeigt, der die Transaktion in 
+         der Blockchain anzeigte. Wie kann ich den wiederfinden?"
+        answer: "In der Blockchain speichert das Bitcoin-Netzwerk, wer welchen Kontostand hat. Da diese Blockchain öffentlich ist,
+        kannst Du auf Seiten wie blockchain.info das Netzwerk beobachten. Wenn Du Deine Wallet-ID eingibst, siehst Du die dazugehörigen
+        Transaktionen."
       profit:
-        question: "How much do you make?"
-        answer: "Nothing. After paying for the server, the packaging and the condom
-    machine itself I loose money."
+        question: "Wieviel verdienst Du mit diesem Dienst?"
+        answer: "Gar nichts. Nach den Kosten für den Server und dem Kondomautomat mache ich Verluste. "
       donations:
-        question: "That is sad. Do you accept donations?"
-        answer: "Yes, I do. Please send donations to 1MSa5eECnZsuzm4jTVCGbUkGNUXnqpVDjy."
+        question: "Das ist schade. Kann ich Dir was in die Kaffeekasse legen?"
+        answer: "Das wäre sehr cool. Meine Kaffeekasse ist 1MSa5eECnZsuzm4jTVCGbUkGNUXnqpVDjy."
       ownmachine:
-        question: "This is a neat idea. Can I build one myself?"
-        answer: "Absolutely! You just need a vending machine of some kind. The server
-    software is available on github. Have fun!" 
+        question: "Die Idee gefällt mir. Kann ich mir selbst sowas bauen?"
+        answer: "Klar! Du brauchst irgendeinen Warenautomaten und die passenden Verpackungen. Die Serversoftware gibt es auf Github. Viel Spaß damit!"
     imprint:
-      title: "Imprint"
-      contact: "If you have questions please contact us at"
+      title: "Impressum"
+      contact: "Bei Fragen oder Anregungen kontaktiere uns bitte unter"
 
   voucher:
     index:
-      title: "Redeem your voucher now!"
-      lead: "Redeeming your voucher is a two-step process. First, you need to enter the voucher code. If it is valid, you will be redirected to a second step where you can enter your wallet id. Please create a wallet if you don't have one yet. For beginners, I recommend the Electrum wallet."
-      step1_title: "Step 1: Enter your voucher code"
-      step1_text: "Only the letters a-f and the number 0-9 are used within your voucher code. If you enter a O as in Octopus, try entering a 0 as in 007."
-      step1_submit_button: "Verify voucher now"
+      title: "Löse Deinen Gutschein ein!"
+      lead: "Das Einlösen Deines Gutscheins läuft in zwei Schritten ab: Zuerst musst Du den Gutscheincode eingeben. Wenn dieser richtig ist, wirst Du 
+        zum zweiten Schritt weitergeleitet. Dort kannst Du dann Deine Wallet-ID eingeben. Falls Du noch kein Bitcoin-Wallet hast, lege bitte vorher eines an.
+        Für Dein erstes Wallet empfehlen wir das Electrum Wallet."
+      step1_title: "Schritt 1: Gib Deinen Gutscheincode ein"
+      step1_text: "Nur die Buchstaben a-f und die Ziffern 0-9 kommen in dem Code vor. Wenn Du ein O wie in Oktopus eingegeben hast: Probier bitte eine 0 wie in 007."
+      step1_submit_button: "Code überprüfen"
     payout:
-      title: "Code accepted!"
-      lead1: "As of "
-      lead2: ", your voucher is worth "
-      lead3: "EUR). Please note that the exchange rate is calculated using the Bitstamp exchange rate and the ECB USD-EUR conversion rate. It will be updated every five minutes."
-
-      step2_title: "Step 2: Enter your wallet id"
-      step2_text: "Once you enter a wallet id, we invalidate your voucher immediately. When the funds have been sent to your wallet id, there is no way for us to cancel the transfer. In your own interest: please make sure to enter a correct address."
-      step2_submit_button: "Claim now"
+      title: "Code akzeptiert!"
+      lead1: "Am "
+      lead2: " ist der Gegenwert Deines Gutscheins "
+      lead3: "EUR). Bitte beachte, dass der Wechselkurs auf den Daten der Bitstamp-Börse basiert und wir US-Dollar mit dem offiziellen Wechselkurs der ECB berechnen. Der Wechselkurs wird alle fünf Minuten neu berechnet."
+      step2_title: "Schritt 2: Gib Deine Wallet-ID ein"
+      step2_text: "Wenn Du Deine Wallet-ID eingibst wird dein Gutschein unmittelbar danach ungültig. Wir schicken Dir unmittelbar danach Deine Bitcoins. Bitte beachte: Alle Transaktionen im Bitcoin-Netzwerk sind nicht umkehrbar, auch nicht für uns. Bitte gib also Deine korrekte Wallet-ID an."
+      step2_submit_button: "Jetzt einlösen"
     success:
-      title: "Success!"
-      lead: "Your bitcoins are on their way. Our minions typically need five minutes to process the payout.  After that, the bitcoin network needs to confirm the payout of your voucher. You can observe the transfer here:"
-      blockchain_button: "Blockchain Wallet Transactions"
+      title: "Profit!"
+      lead: "Deine Bitcoins sind auf dem Weg. Unsere Minenzwerge benötigen normalerweise fünf Minuten für die Auszahlung. Danach muss das Bitcoin-Netzwerk den Transfer bestätigen. Du kannst das Bitcoin-Netz mit folgendem Link dabei beobachten:"
+      blockchain_button: "Blockchain.info Wallet Übersicht"
     

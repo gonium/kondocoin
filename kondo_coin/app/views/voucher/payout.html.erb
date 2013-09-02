@@ -2,8 +2,6 @@
 
   <h1><%= t ".title" %></h1>
 
-  <p><%= t(".lead") %></p>
-
   <p><%= t ".lead1" %> <%= localize(@last_ticker_timestamp, :format => :short) %>
   <%= t ".lead2" %> <%= "%3.4f" % @current_btc_value %> BTC (1 BTC = <%= "%3.4f" % @last_euro_ticker %> <%= t ".lead3" %></p>
 

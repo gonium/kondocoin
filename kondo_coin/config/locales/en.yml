@@ -1,6 +1,8 @@
 en:
   email: "hello@kondoco.in"
   language_selector: "Sprache"
+  invalid_voucher_code: "Invalid voucher code - please try again."
+  invalid_wallet_id: "Invalid wallet address - please enter a correct one."
   layouts:
     header:
       home_link: "Home"
