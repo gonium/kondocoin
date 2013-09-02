@@ -1,4 +1,32 @@
-### Installation
+### About
+
+The Kondocoin is a friendly bitcoin vending machine for bitcoin
+newcomers. It allows you to sell vouchers for BTC: You generate a
+voucher for a given fiat currency value and sell it using any kind of
+vending machine. The customer then can enter the voucher's code on your
+website and get his BTC. This repository contains a Rails 4 application
+for handling the website part.
+
+The basic operation works like this:
+
+  * You generate vouchers using ``rake voucher:generate``.
+  * You print them: ``rake voucher:print``. The vouchers are now marked
+    active within the database.
+  * A customer buys a voucher. 
+  * He enters the voucher code along with his wallet address. The server
+    running this software accesses an instance of bitcoind to transfer
+    the funds.
+
+TODO: More detailed description of the operation.
+
+### WARNING
+
+This software was carefully developed and tested. However, I cannot
+guarantee that there are no security vulnerabilities included - and maybe you
+introduce vulnerabilities by the way you're operating it. In the worst
+case, someone might steal your bitcoins. You have been warned.
+
+### Development Installation
 
 ```` 
  $ rvm use 2.0.0@kondocoin --create
@@ -10,39 +38,13 @@
 If the app complains about a missing database.yml, please generate a
 dummy rails environment and copy the default database.yml from it.
 
+Most of the functionality is only available through rake. Please run
 
-###
+````
+ $ rake -T
+````
 
- * [Bitcoind JSON-RPC API](https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)#Ruby)
- * https://github.com/bkerley/bitcoind
- * PDF: http://railscasts.com/episodes/78-generating-pdf-documents
-   * http://blog.idyllic-software.com/blog/bid/204082/Creating-PDF-using-Prawn-in-Ruby-on-Rails
- * http://railscasts.com/episodes/342-migrating-to-postgresql
- * Statemachine: https://github.com/pluginaweek/state_machine
-   * siehe "Web Frameworks" fuer ein Beispiel
- * Cronjob: Hält Bitcoin-Kurs aktuell.
-   * siehe (veraltet) http://railscasts.com/episodes/164-cron-in-ruby?autoplay=true
-   * https://github.com/javan/whenever
- * Kursdaten abrufen:
-   * http://stackoverflow.com/questions/3139879/how-do-i-get-currency-exchange-rates-using-google-finance-api
-
- * Autotab for entering the code:
-   * http://www.mathachew.com/sandbox/jquery-autotab/
-
- * Icon fonts:
-   * http://t3n.de/news/10-kostenlose-icon-fonts-450651/?utm_source=feedburner+t3n+News+12.000er&utm_medium=feed&utm_campaign=Feed%3A+aktuell%2Ffeeds%2Frss+%28t3n+News%29
- * Flat UI for Rails:
-   * http://designmodo.com/flat/
-   * https://github.com/darthdeus/flat-ui-rails
-   * https://github.com/reflection/designmodo-flatuipro-rails
-   * http://stackoverflow.com/questions/17173133/how-can-i-add-the-flat-ui-into-rails
-   * https://github.com/pkurek/flatui-rails
- * I18N:
-   * http://thepugautomatic.com/2012/07/rails-i18n-tips/
-
-
-
- ruby bitcoin-client gem
+to see a list of available tasks.
 
 
 ### Deployment
