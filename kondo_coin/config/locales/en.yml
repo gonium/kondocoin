@@ -62,7 +62,7 @@ en:
       ownmachine:
         question: "This is a neat idea. Can I build one myself?"
         answer: "Absolutely! You just need a vending machine of some kind. The server
-    software is available on github. Have fun!" 
+    software is available on github: https://github.com/gonium/kondocoin (GPLv3). Have fun!" 
     imprint:
       title: "Imprint"
       contact: "If you have questions please contact us at"

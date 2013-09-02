@@ -60,7 +60,7 @@ de:
         answer: "Das wäre sehr cool. Meine Kaffeekasse ist 1MSa5eECnZsuzm4jTVCGbUkGNUXnqpVDjy."
       ownmachine:
         question: "Die Idee gefällt mir. Kann ich mir selbst sowas bauen?"
-        answer: "Klar! Du brauchst irgendeinen Warenautomaten und die passenden Verpackungen. Die Serversoftware gibt es auf Github. Viel Spaß damit!"
+        answer: "Klar! Du brauchst irgendeinen Warenautomaten und die passenden Verpackungen. Die Serversoftware gibt es auf Github: https://github.com/gonium/kondocoin (GPLv3). Viel Spaß damit!"
     imprint:
       title: "Impressum"
       contact: "Bei Fragen oder Anregungen kontaktiere uns bitte unter"
