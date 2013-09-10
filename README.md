@@ -11,11 +11,14 @@ everyone: a pre-calculated bitcoin voucher might be worth a lot more (or
 less) when it is purchased. A disadvantage is that the customer has to
 trust the seller. For the very low amounts of BTC we're currently
 handling this should be acceptable. We're also accepting only fixed
-amounts of fiat currency, currently 2 Euro. 
+amounts of fiat currency, currently 2 Euro.
+
+/Please: Consider running one in your hackerspace, promote the idea of
+a decentralized currency!/
 
 This repository contains a Rails 4 application for handling the website part.
 The corresponding hardware is described in [the
-wiki](https://github.com/gonium/kondocoin/wiki/hardware)
+wiki](https://github.com/gonium/kondocoin/wiki/hardware).
 Yes, this is an old condom vending machine. I've got it for approx. 60
 Euro on ebay. As it turns out, you can also buy the little cardboard
 boxes that go into it on ebay. The setup has the advantage that it
@@ -43,7 +46,7 @@ This allows people to purchase a small amount of BTC anonymously.  The basic ope
 
 You can see a live (and operational) version of this software here:
 
-    [https://kondoco.in/](https://kondoco.in/)
+[https://kondoco.in/](https://kondoco.in/)
 
 ### Missing features
 

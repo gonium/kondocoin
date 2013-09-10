@@ -29,15 +29,24 @@ en:
     where:
       title: "Current location"
       description: |
-        The kondocoin is currently at home and not accessible. It is looking forward to meet you at the %{href} in Darmstadt, Germany.
-        A more detailed description (including a picture) of its on-event location will be posted here.
-      location_url: "http://mrmcd.net"
-      location_name: "MRMCD 2013"
+        The kondocoin is currently at home and not accessible. It is looking forward to meet you at the %{href} in Hamburg, Germany. A more detailed description (including a picture) of its on-event location will be posted here.
+      location_url: "http://events.ccc.de/2013/07/18/30c3-call-for-participation-de/"
+      location_name: "30C3"
+      prevloc_title: "Previous locations"
+      prevloc_description: |
+        The Kondocoin has been at %{href} in Darmstadt: %{img}
+      prevloc_location_url: "http://mrmcd.net"
+      prevloc_location_name: "MRMCD 2013"
+      prevloc_image: "mrmcd2013-600x450.jpg"
+
 
     about:
       title: "About kondoco.in"
       lead: |
         The kondoco.in bitcoin vending machine provides a simple way for newcomers to obtain bitcoins. It is not suitable for buying large amounts of bitcoins, but perfect for your first bitcoin. If you have questions please contact us at
+      lead2: |
+        The Kondocoin is an open source project. It is documented at 
+        https://github.com/gonium/kondocoin.
       faq: "Frequently asked questions"
       nowallet:
         question: "I don't have a bitcoin wallet. Can you recommend one?"
