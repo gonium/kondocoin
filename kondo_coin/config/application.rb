@@ -30,7 +30,11 @@ module KondoCoin
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :de
     # See http://stackoverflow.com/questions/20361428/rails-i18n-validation-deprecation-warning
+<<<<<<< HEAD
     I18n.config.enforce_available_locales = true
+=======
+    config.i18n.enforce_available_locales = true
+>>>>>>> 894e6eca7f9e75d969154f216b5163aaefcfce16
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif);
     #config.autoload_paths += %w(#{config.root}/lib);
