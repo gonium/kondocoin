@@ -29,6 +29,8 @@ module KondoCoin
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :de
+    # See http://stackoverflow.com/questions/20361428/rails-i18n-validation-deprecation-warning
+    I18n.config.enforce_available_locales = true
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif);
     #config.autoload_paths += %w(#{config.root}/lib);
