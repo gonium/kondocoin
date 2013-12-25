@@ -22,6 +22,46 @@ namespace :voucher do
 end
 
 namespace :voucher do
+  desc "Everything in a glance."
+  task overview: :environment do
+    puts "Overview:"
+    active = Voucher.with_state(:active);
+    active_eurovalue = 0.0
+    active.each{|v|
+      active_eurovalue += v.eurovalue;
+    }
+    redeemed = Voucher.with_state(:redeemed);
+    redeemed_eurovalue = 0.0
+    redeemed_btcvalue = 0.0
+    redeemed.each{|v|
+      p=Payout.find_by(voucher_id: v.id);
+      redeemed_eurovalue += v.eurovalue; 
+      redeemed_btcvalue += p.payout_value; 
+    }
+    completed = Voucher.with_state(:completed);
+    completed_eurovalue = 0.0
+    completed_btcvalue = 0.0
+    completed.each{|v|
+      p=Payout.find_by(voucher_id: v.id);
+      completed_eurovalue += v.eurovalue; 
+      completed_btcvalue += p.payout_value; 
+    }
+    last_tick = Ticker.last(1)[0]
+    puts "Ticker: #{last_tick.timestamp} - USD #{last_tick.btc_usd}, EUR #{last_tick.btc_eur}"
+    begin
+      client=BitcoinClient.new();
+      puts client.get_account_info();
+    rescue
+      puts "Error - cannot get current bitcoin wallet balance. bitcoind down?"
+    end
+    puts "Active:\t\t#{active.count} vouchers, #{active_eurovalue} Euro in total";
+    puts "Redeemed:\t#{redeemed.count} vouchers, #{redeemed_eurovalue} Euro / #{redeemed_btcvalue} BTC in total";
+    puts "Completed:\t#{completed.count} vouchers, #{completed_eurovalue} Euro / #{completed_btcvalue} BTC in total";
+
+  end
+end
+
+namespace :voucher do
   desc "Show all active vouchers from the database."
   task active: :environment do
     puts "active vouchers:"
