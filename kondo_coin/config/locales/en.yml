@@ -26,20 +26,7 @@ en:
       about_link: "about page"
       alreadybought: "Already bought a voucher?"
       redeem_button: "Redeem Voucher now!"
-    where:
-      title: "Current location"
-      description: |
-        The kondocoin is currently at home and not accessible. It is looking forward to meet you at the %{href} in Hamburg, Germany. A more detailed description (including a picture) of its on-event location will be posted here.
-      location_url: "http://events.ccc.de/2013/07/18/30c3-call-for-participation-de/"
-      location_name: "30C3"
-      prevloc_title: "Previous locations"
-      prevloc_description: |
-        The Kondocoin has been at %{href} in Darmstadt: %{img}
-      prevloc_location_url: "http://mrmcd.net"
-      prevloc_location_name: "MRMCD 2013"
-      prevloc_image: "mrmcd2013-600x450.jpg"
-
-
+    
     about:
       title: "About kondoco.in"
       lead: |

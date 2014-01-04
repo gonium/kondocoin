@@ -26,18 +26,6 @@ de:
       about_link: "über uns-Seite"
       alreadybought: "Schon einen Gutschein gekauft?"
       redeem_button: "Gutschein einlösen!"
-    where:
-      title: "Aktueller Aufstellungsort"
-      description: |
-        Der Kondocoin ist momentan zuhause und leider nicht verfügbar. Er freut sich aber schon auf den nächsten Event, den %{href} in Hamburg. Weitere Informationen und ein Bild des Aufstellungsorts werden hier eingepflegt werden.
-      location_url: "http://events.ccc.de/2013/07/18/30c3-call-for-participation-de/"
-      location_name: "30C3"
-      prevloc_title: "Vorherige Aufstellungsorte"
-      prevloc_description: |
-        Der Kondocoin war auf der %{href} in Darmstadt: %{img}
-      prevloc_location_url: "http://mrmcd.net"
-      prevloc_location_name: "MRMCD 2013"
-      prevloc_image: "mrmcd2013-600x450.jpg"
     about:
       title: "Über Kondocoin"
       lead: |
