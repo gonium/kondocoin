@@ -239,6 +239,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    videojs_rails (4.1.0)
     whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
@@ -279,6 +280,7 @@ DEPENDENCIES
   turbolinks
   uglifier
   unicorn
+  videojs_rails (= 4.1.0)
   whenever (= 0.8.4)
   will_paginate (= 3.0.4)
   xml-simple (~> 1.1.2)

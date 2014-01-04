@@ -17,6 +17,8 @@ gem 'xml-simple', "~> 1.1.2"
 gem "bitstamp", "~> 0.2.7"
 gem "bitcoin-client" 
 gem "whenever", "0.8.4"
+# See https://github.com/seanbehan/videojs_rails for instructions
+gem "videojs_rails", "4.1.0"
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
