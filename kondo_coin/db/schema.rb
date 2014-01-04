@@ -37,6 +37,6 @@ ActiveRecord::Schema.define(version: 20130819142848) do
     t.datetime "updated_at"
   end
 
-  add_index "vouchers", ["code"], name: "index_vouchers_on_code", unique: true, using: :btree
+  add_index "vouchers", ["code"], name: "index_vouchers_on_code", unique: true
 
 end
