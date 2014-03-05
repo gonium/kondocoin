@@ -34,9 +34,10 @@ namespace :voucher do
     redeemed_eurovalue = 0.0
     redeemed_btcvalue = 0.0
     redeemed.each{|v|
-      p=Payout.find_by(voucher_id: v.id);
       redeemed_eurovalue += v.eurovalue; 
-      redeemed_btcvalue += p.payout_value; 
+      if (p=Payout.find_by(voucher_id: v.id))
+        redeemed_btcvalue += p.payout_value; 
+      end
     }
     completed = Voucher.with_state(:completed);
     completed_eurovalue = 0.0
