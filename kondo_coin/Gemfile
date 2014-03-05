@@ -1,10 +1,10 @@
 # This is taken from http://ruby.railstutorial.org/, Listing 9.48.
 
 source 'https://rubygems.org'
-ruby '2.0.0' 
+ruby '2.1.1' 
 #ruby-gemset=kondocoin
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'rails-observers'
 gem 'rails-i18n' #, '~> 4.0.0.pre'
 gem 'bootstrap-sass', '2.3.2.0'
@@ -14,7 +14,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'state_machine', '1.2.0'
 gem 'prawn', "~> 0.12.0"
 gem 'xml-simple', "~> 1.1.2"
-gem "bitstamp", "~> 0.2.7"
+gem "bitstamp", "~> 0.3.0"
 gem "bitcoin-client" 
 gem "whenever", "0.8.4"
 # See https://github.com/seanbehan/videojs_rails for instructions
